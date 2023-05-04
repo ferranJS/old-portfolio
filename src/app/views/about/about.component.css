@@ -1,14 +1,15 @@
 .about {
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 16%;
-    padding-bottom: 6%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16%;
+  gap: 50px;
+  padding-bottom: 6%;
 }
 
 .team-members {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

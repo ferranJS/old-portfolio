@@ -69,14 +69,14 @@
   color: #0b2448;
   text-align: start;
   font-size: 1.5rem;
-  backdrop-filter: blur(10px) brightness(101%);
+  /* backdrop-filter: blur(10px) brightness(101%); */
   line-height: 1.75rem;
 }
 
 .project-description {
   color: #3a4e6c;
   margin: 0 0 1.5rem;
-  backdrop-filter: blur(10px) brightness(101%);
+  /* backdrop-filter: blur(10px) brightness(101%); */
   text-align: start;
   max-width: 400px;
 }

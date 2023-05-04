@@ -12,7 +12,7 @@ import Ball from './ball.model';
 
 export class BackgroundComponent implements OnInit {
   MAX_BALLS: number = 200; //default
-  STRING_MAX: number = 140;
+  STRING_MAX: number = 170;
   STRING_MIN: number = 30;
   balls: Ball[] = [];
   alto!: number;
@@ -25,18 +25,27 @@ export class BackgroundComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const sketch = (p5: any) => {
+    const sketch = (p5: p5) => {
       this.alto = p5.windowHeight; 
-      this.ancho = document.body.clientWidth; // Esta medida es más precisa que windowWidth
-
+      this.ancho = Math.max(
+        document.body.scrollWidth,
+        document.body.offsetWidth,
+        document.body.clientWidth,
+      );; // Esta medida es más precisa que windowWidth
+      console.log("document.body.scrollWidth: ", document.body.scrollWidth);
+      console.log("document.documentElement.scrollWidth: ", document.documentElement.scrollWidth);
+      console.log("document.documentElement.offsetWidth: ", document.documentElement.offsetWidth);
+      console.log("document.body.offsetWidth: ", document.body.offsetWidth);
+      console.log("document.documentElement.clientWidth: ", document.documentElement.clientWidth);
+      console.log("document.body.clientWidth: ", document.body.clientWidth);
       p5.setup = () => {      
-        p5.frameRate(45);
+        p5.frameRate(40);
 
-        this.MAX_BALLS = (p5.windowHeight + p5.windowWidth)/10; //this is the real number of balls
+        console.log("p5.windowHeight: ", p5.windowHeight);
+        this.MAX_BALLS = (p5.windowHeight + this.ancho)/13; //this is the real number of balls
         console.log(this.MAX_BALLS)
-        if(p5.windowHeight > p5.windowWidth) {
-          this.MAX_BALLS = 35; 
-          this.STRING_MAX = 150;
+        if(p5.windowHeight > this.ancho) {
+          this.MAX_BALLS = 0.7*this.MAX_BALLS;
           this.STRING_MIN = 15;   
           
           p5.frameRate(20);
@@ -47,10 +56,10 @@ export class BackgroundComponent implements OnInit {
         this.canvas.position(0, 0);
         this.canvas.style('z-index', '-1');
 
-        if(p5.windowHeight < p5.windowWidth) {
+        if(p5.windowHeight < this.ancho) {
         //pc
           while(this.balls.length < this.MAX_BALLS) {
-            var randX = Math.random() * (p5.windowWidth + 10) - 10;
+            var randX = Math.random() * (this.ancho + 10) - 10;
             var randY = Math.random() * (p5.windowHeight * 3 + 10) - 10;
 
             // Alrededor del logo
@@ -61,21 +70,21 @@ export class BackgroundComponent implements OnInit {
               this.balls.push(new Ball(randX, randY, p5));
             }
             //inbetween
-            else if(randY >= p5.windowHeight * 1.9 && randY <= p5.windowHeight * 2) {
+            else if(randY >= p5.windowHeight * 1.8 && randY <= p5.windowHeight * 2.35) {
               this.balls.push(new Ball(randX, randY, p5));
             }
             // Los lados
-            else if(randX <= p5.windowWidth * 0.14) {
+            else if(randX <= this.ancho * 0.14) {
               this.balls.push(new Ball(randX, randY, p5));
             }
-            else if(randX >= p5.windowWidth * 0.78) {
+            else if(randX >= this.ancho * 0.78) {
               this.balls.push(new Ball(randX, randY, p5));
             }
           }  
         }else {
         //móvil
           while(this.balls.length < this.MAX_BALLS) {
-            var randX = Math.random() * (p5.windowWidth + 10) - 10;
+            var randX = Math.random() * (this.ancho + 10) - 10;
             var randY = Math.random() * (p5.windowHeight * 3 + 10) - 10;
             if(randY <= p5.windowHeight * 0.37) {
               this.balls.push(new Ball(randX, randY, p5));
@@ -87,9 +96,9 @@ export class BackgroundComponent implements OnInit {
         }
         //color y transparencia de todo
         this.transp = 150;
-         this.sW = 0.4;
-        if(this.p5.windowHeight > this.p5.windowWidth) {
-          this.transp = 30;
+        this.sW = 0.4;
+        if(this.p5.windowHeight > this.ancho) {
+          this.transp = 20;
           this.sW = 1.5;
         }
       }
@@ -97,11 +106,11 @@ export class BackgroundComponent implements OnInit {
 
       p5.draw = () => {
         
-        p5.clear();
+        (p5 as any).clear();
 
         // background parcial
         p5.noStroke();
-        p5.quad(0, p5.windowHeight * 1.08, p5.windowWidth+20, p5.windowHeight * 1.02, p5.windowWidth+20, p5.windowHeight * 2.95, 0, p5.windowHeight * 2.99);
+        p5.quad(0, p5.windowHeight * 1.08, this.ancho+20, p5.windowHeight * 1.02, this.ancho+20, p5.windowHeight * 2.95, 0, p5.windowHeight * 2.99);
 
         // Dibuja las Líneas que unen (a optimizar mucho)
         p5.strokeWeight(this.sW);   
@@ -132,16 +141,16 @@ export class BackgroundComponent implements OnInit {
 
       //pelotillas are relocated when resized
       p5.windowResized = () => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight * 3);
+        p5.resizeCanvas(this.ancho, p5.windowHeight * 3);
         var ry = p5.windowHeight / this.alto;
-        var rx = p5.windowWidth / this.ancho;
+        var rx = this.ancho / this.ancho;
 
         this.balls.forEach(p => {
           p.position(p.x * rx, p.y * ry);
         });
         
       this.alto = p5.windowHeight;
-      this.ancho = p5.windowWidth;
+      this.ancho = this.ancho;
       }
     }
 
