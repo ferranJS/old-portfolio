@@ -1,0 +1,526 @@
+.about {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 16%;
+  padding-bottom: 6%;
+}
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
+
+/* transiciones entre gradientes */
+body {
+  color: white;
+  z-index: -5;
+  background: linear-gradient(
+    -45deg,
+    yellow,
+    #ffa55b,
+    #ff615b,
+    #e73c7e,
+    #cb3ce7,
+    #46b7e4,
+    #23d5ab,
+    #c4ffde
+  );
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+  text-shadow: 1px 1px #6161616e;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ! unselectable TEXT maybe not worth it */
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  color: #0b2448;
+  font-family: "Rubik";
+  font-weight: bold;
+  text-align: center;
+}
+
+.h2 {
+  font-size: 2.375rem;
+  line-height: 2.875rem;
+}
+
+.h3 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.h4 {
+  font-size: 1rem;
+}
+
+.body {
+  color: #3a4e6c;
+  font-size: 1rem;
+}
+.team {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 24px 0;
+}
+
+.team-portrait {
+  height: 156px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.team-content {
+  margin-left: 8px;
+}
+
+.team-social {
+  margin: 4px;
+}
+
+.team-icon {
+  color: #0b2448;
+}
+
+.team-icon:hover {
+  color: #000;
+}
+
+.subtitle {
+  color: #3a4e6c;
+  margin: 0 0 1.5rem;
+  font-family: "Rubik";
+  font-size: 1rem;
+  text-align: center;
+  max-width: 720px; /* Como .container */
+}
+
+section {
+  width: 100%;
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  bottom: 0px;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+.header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  color: white;
+  font-family: "Montserrat Alternates";
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn {
+  opacity: 1;
+}
+
+.language {
+  width: 12%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 10px;
+}
+
+.scroll-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+}
+
+/* Logo Glitch! */
+
+body {
+  background-color: #333;
+}
+
+#logo {
+  width: 70vw;
+  margin-right: 40px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 6em;
+  /* letter-spacing: 0.5px; */
+  font-weight: 400;
+
+  margin-right: 0px;
+  /*Esto hace que todos los h1 esten en el mismo sitio 
+    pero que el títuo no pueda saltar de línea*/
+  /* line-height: 0.03;  */
+
+  animation: glitch1 6.5s infinite;
+  animation: glitch2 6.5s infinite;
+  animation: glitch3 5s infinite;
+}
+
+/* h1:nth-child(2) {
+  color: white;
+  animation: glitch2 6.5s infinite;
+}
+
+h1:nth-child(3) {
+  color: white;
+  animation: glitch3 5.0s infinite;
+} */
+/*Keyframes*/
+
+@keyframes glitch1 {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: skew(-0.5deg, -0.9deg);
+    opacity: 1;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: skew(0.8deg, -0.1deg);
+    opacity: 1;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: skew(-1deg, 0.2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  72% {
+    transform: none;
+    opacity: 1;
+  }
+  75% {
+    transform: skew(0.4deg, 1deg);
+    opacity: 1;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes glitch2 {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: translate(-2px, -3px);
+    opacity: 0.5;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: translate(-5px, -2px);
+    opacity: 0.5;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: translate(-5px, -1px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  72% {
+    transform: none;
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-2px, -6px);
+    opacity: 0.5;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes glitch3 {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: translate(2px, 3px);
+    opacity: 0.5;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: translate(5px, 2px);
+    opacity: 0.5;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: translate(5px, 1px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  72% {
+    transform: none;
+    opacity: 1;
+  }
+  75% {
+    transform: translate(2px, 6px);
+    opacity: 0.5;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+.project {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.project-title {
+  text-align: center;
+}
+
+.p-icon {
+  width: 4em;
+  display: inline-block;
+  border-radius: 60px;
+  padding: 0.4em 0.4em;
+  color: #29323c;
+  background-color: white;
+
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+
+  -webkit-box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+  -moz-box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+  box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+}
+
+.p-icon:hover,
+.p-icon:focus {
+  transform: scale(1.05);
+}
+
+.project-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  margin-top: 3.75rem;
+  margin-bottom: 6.25rem;
+}
+
+.project-sample {
+  width: 40%;
+
+  -webkit-box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+  -moz-box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+  box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+
+  border-radius: 20px;
+
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.project-sample:hover,
+.project-sample:focus {
+  transform: scale(1.014);
+}
+
+.project-content {
+  margin-right: 24px;
+}
+
+.project-title {
+  color: #0b2448;
+  font-family: "Rubik";
+  text-align: start;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.project-description {
+  color: #3a4e6c;
+  margin: 0 0 1.5rem;
+  font-family: "Rubik";
+  text-align: start;
+  max-width: 400px;
+}
+
+.project-author {
+  color: #182333;
+  font-size: small;
+  margin: 0 0 1.5rem;
+  font-family: "Rubik";
+  text-align: end;
+  padding-right: 10%;
+  max-width: 400px;
+}
+
+.project-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.project-buttons a {
+  color: #fff !important;
+}
+
+.project-sample-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .project-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-sample {
+    width: 80%;
+    height: 100%;
+    margin-bottom: 40px;
+  }
+
+  .project-content {
+    margin-left: 20px;
+    margin-bottom: 24px;
+  }
+}
+html,
+body {
+  scroll-behavior: smooth !important;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
+}
