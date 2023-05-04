@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamMember } from 'src/app/models/team-member.model';
+import { TeamMemberComponent } from "../../components/team/team-member.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+    selector: 'app-about',
+    standalone: true,
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css'],
+    imports: [TeamMemberComponent, CommonModule]
 })
 export class AboutComponent implements OnInit {
 

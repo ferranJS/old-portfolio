@@ -6,7 +6,7 @@
   text-align: center;
   justify-content: space-around;
   color: white;
-  font-family: 'Montserrat Alternates';
+  font-family: "Montserrat Alternates";
 }
 
 .btn:focus {
@@ -22,26 +22,19 @@
   width: 12%;
   display: flex;
   justify-content: space-around;
-  position:absolute;
+  position: absolute;
   top: 10px;
 }
-
-
 
 .scroll-cta {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position:absolute;
+  position: absolute;
   bottom: 5px;
 }
 
-
 /* Logo Glitch! */
-
-body {
-  background-color: #333;
-}
 
 #logo {
   width: 70vw;
@@ -55,15 +48,15 @@ h1 {
   font-size: 6em;
   /* letter-spacing: 0.5px; */
   font-weight: 400;
-  
+
   margin-right: 0px;
   /*Esto hace que todos los h1 esten en el mismo sitio 
     pero que el títuo no pueda saltar de línea*/
   /* line-height: 0.03;  */
-  
+
   animation: glitch1 6.5s infinite;
   animation: glitch2 6.5s infinite;
-  animation: glitch3 5.0s infinite;
+  animation: glitch3 5s infinite;
 }
 
 /* h1:nth-child(2) {

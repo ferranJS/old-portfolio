@@ -7,7 +7,7 @@ export class Project {
     image?: String;
     author?: String;
     
-    constructor(name, description, urlProject, urlSource, image, author, icon) {
+    constructor(name: string | String, description: String | undefined, urlProject: String | undefined, urlSource: String | undefined, image: String | undefined, author: String | undefined, icon: String) {
         this.name = (name !== "") ? name : "Coming Soon...";
         this.description = description;
         this.author = author;

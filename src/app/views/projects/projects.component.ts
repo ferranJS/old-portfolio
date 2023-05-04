@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Project } from './../../models/project.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
+  standalone: true,
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
+  imports: [CommonModule]
 })
 export class ProjectsComponent implements OnInit {
   projectList: Project[] = [
@@ -17,7 +20,7 @@ export class ProjectsComponent implements OnInit {
      image: "../../../assets/samples/cellular-stuff-preview.gif"}
   ];
 
-  projectSelected: Project;
+  projectSelected!: Project;
 
   constructor() { }
 

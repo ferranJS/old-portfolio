@@ -7,7 +7,7 @@ export default class Ball {
   sW: number;
   r: number;
 
-  constructor(x, y, p5) {
+  constructor(x: number, y: number, p5: any) {
     this.x = x;
     this.y = y;
     this.vx = 0;

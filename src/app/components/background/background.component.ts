@@ -5,6 +5,7 @@ import Ball from './ball.model';
 
 @Component({
   selector: 'app-background',
+  standalone: true,
   template: ``,
   styles: [`
   html, body {
@@ -19,17 +20,17 @@ export class BackgroundComponent implements OnInit {
   STRING_MAX: number = 140;
   STRING_MIN: number = 30;
   balls: Ball[] = [];
-  alto: number;
-  ancho: number;
-  transp;
-  sW;
-  canvas;
-  p5;
+  alto!: number;
+  ancho!: number;
+  transp!: number;
+  sW!: number;
+  canvas!: { parent: (arg0: string) => void; position: (arg0: number, arg1: number) => void; style: (arg0: string, arg1: string) => void; };
+  p5!: p5;
 
   constructor() { }
 
   ngOnInit(): void {
-    const sketch = (p5) => {
+    const sketch = (p5: any) => {
       this.alto = p5.windowHeight; 
       this.ancho = document.body.clientWidth; // Esta medida es más precisa que windowWidth
 

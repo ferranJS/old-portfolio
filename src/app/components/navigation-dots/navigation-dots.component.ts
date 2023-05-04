@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-dots',
+  standalone: true,
   templateUrl: './navigation-dots.component.html',
-  styleUrls: ['./navigation-dots.component.css']
+  styleUrls: ['./navigation-dots.component.css'],
+  imports: [CommonModule]
 })
 export class NavigatonDotsComponent implements OnInit, OnDestroy {
 
-  @Input() sections: string[];
-  sectionActive: string;
+  @Input()
+  sections!: string[];
+  sectionActive!: string;
 
   constructor() { }
 
@@ -54,7 +58,7 @@ export class NavigatonDotsComponent implements OnInit, OnDestroy {
   }
 
   scrollTo(elemId: string) {
-    let pos = document.getElementById(elemId).offsetTop;
+    let pos = document.getElementById(elemId)!.offsetTop;
     this.sectionActive = elemId;
 
     window.scroll({
@@ -68,7 +72,7 @@ export class NavigatonDotsComponent implements OnInit, OnDestroy {
    * more percentage of the element is been seen on the viewport. 
    */
   checkItemOnScreen(elemId: string): number {
-    const element: DOMRect = document.getElementById(elemId).getBoundingClientRect();
+    const element: DOMRect = document.getElementById(elemId)!.getBoundingClientRect();
 
     return element.top;
   }
