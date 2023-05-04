@@ -2,8 +2,12 @@
 
 @import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
 
+* {
+  box-sizing: border-box;
+}
 /* transiciones entre gradientes */
 body {
+  margin: 0;
   color: white;
   z-index: -5;
   background: linear-gradient(
@@ -20,6 +24,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 7s ease infinite;
   text-shadow: 1px 1px #6161616e;
+  font-family: "Rubik";
 }
 @keyframes gradient {
   0% {
@@ -48,7 +53,6 @@ body {
 .h3,
 .h4 {
   color: #0b2448;
-  font-family: "Rubik";
   font-weight: bold;
   text-align: center;
 }
@@ -67,15 +71,9 @@ body {
   font-size: 1rem;
 }
 
-.body {
-  color: #3a4e6c;
-  font-size: 1rem;
-}
-
 .subtitle {
   color: #3a4e6c;
   margin: 0 0 1.5rem;
-  font-family: "Rubik";
   font-size: 1rem;
   text-align: center;
   max-width: 720px; /* Como .container */

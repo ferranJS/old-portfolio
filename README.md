@@ -1,27 +1,28 @@
-# portfolio
+*Long long ago in 2019...*
+# an old portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This is an old portofolio I built in 2019 with a friend in order to learn a bit of Angular and web development.
 
-## Development server
+This project was RE-generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## problems of the past
+- an Angular project for a portfolio... (not even typescript should be needed)
+- too many files (they could have been inline components)
+- very slow js for background
+- ugly responsiveness
+- bad css
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## to improve from now on
 
-## Build
+- make it responsive
+- make it prettier
+- add Universal for SEO
+- add pre-commit hooks for Universal build & linting
+- maybe use tailwind
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- ### optimize:
+  - background js (add service worker too?)
+  - image/gifs with \<picture> element
+  - meta tags order
+  - meta tags content

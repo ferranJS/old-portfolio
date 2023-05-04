@@ -1,9 +1,9 @@
 <div class="team">
   <img class="team-portrait" [src]="member.portrait" />
   <div class="team-content">
-    <strong class="h4 theme-light">{{ member.name }}</strong>
-    <div class="body theme-light">{{ member.position }}</div>
-    <p class="body theme-light">{{ member.description }}</p>
+    <strong class="h4" style="color: rgb(17, 17, 17)">{{ member.name }}</strong>
+    <div class="body" style="color: rgb(17, 17, 17)">{{ member.position }}</div>
+    <p class="body" style="color: rgb(17, 17, 17)">{{ member.description }}</p>
 
     <a
       *ngFor="let social of member.social"

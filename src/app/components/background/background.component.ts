@@ -7,12 +7,7 @@ import Ball from './ball.model';
   selector: 'app-background',
   standalone: true,
   template: ``,
-  styles: [`
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-`]
+  styles: [``]
 })
 
 export class BackgroundComponent implements OnInit {

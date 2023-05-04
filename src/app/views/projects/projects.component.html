@@ -18,15 +18,13 @@
       <p class="project-description">{{ projectSelected.description }}</p>
       <p class="project-author">by {{ projectSelected.author }}</p>
       <div class="project-buttons">
-        <a
-          class="btn btn-primary"
-          [attr.href]="projectSelected.urlProject"
-          target="_blank"
+        <a class="btn" [attr.href]="projectSelected.urlProject" target="_blank"
           >See project</a
         >
         <a
           *ngIf="projectSelected.urlSource"
-          class="btn btn-secondary ml-2"
+          class="btn"
+          style="background-color: rgb(108, 111, 146)"
           [attr.href]="projectSelected.urlSource"
           target="_blank"
           >Go to source</a

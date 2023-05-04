@@ -49,7 +49,10 @@ h1 {
   /* letter-spacing: 0.5px; */
   font-weight: 400;
 
-  margin-right: 0px;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
   /*Esto hace que todos los h1 esten en el mismo sitio 
     pero que el títuo no pueda saltar de línea*/
   /* line-height: 0.03;  */
