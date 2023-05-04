@@ -1,0 +1,14 @@
+<div class="team">
+    <img class="team-portrait" [src]="member.portrait">
+    <div class="team-content">
+        <strong class="h4 theme-light">{{member.name}}</strong>
+        <div class="body theme-light">{{member.position}}</div>
+        <p class="body theme-light">{{member.description}}</p>
+
+        <a *ngFor="let social of member.social" class="team-social" target="_blank" [attr.href]="social.href">
+            <i [class]="social.class + ' team-icon'"></i>
+        </a>
+    </div>
+</div>
+
+<!-- [ngClass]="{'fade-in': !load, 'fade-in-loaded': load}" -->

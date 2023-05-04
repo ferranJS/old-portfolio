@@ -1,0 +1,26 @@
+<section class="project">
+    <div class="project-header">
+        <h2 class="h2">Our projects</h2>
+        <p class="subtitle">Groupal and individual projects by the team</p>        
+    </div>
+    
+    <div class="project-icons">
+        <img *ngFor="let project of projectList" [src]="project.icon" class="m-2 p-icon" (click)="selectProject(project)">
+    </div>
+
+    <div class="project-wrapper">
+        <div class="project-content">
+            <h3 class="project-title">{{projectSelected.name}}</h3>
+            <p class="project-description">{{projectSelected.description}}</p>
+            <p class="project-author"> by {{projectSelected.author}}</p>
+            <div class="project-buttons">
+                <a class="btn btn-primary" [attr.href]="projectSelected.urlProject" target="_blank">See project</a>
+                <a *ngIf="projectSelected.urlSource" class="btn btn-secondary ml-2" [attr.href]="projectSelected.urlSource" target="_blank">Go to source</a>
+            </div>
+        </div>
+
+        <a class="project-sample" [attr.href]="projectSelected.urlProject" target="_blank">
+            <img class="project-sample-image" [src]="projectSelected.image">
+        </a>      
+    </div>
+</section>

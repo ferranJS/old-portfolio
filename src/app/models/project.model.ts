@@ -1,0 +1,19 @@
+export class Project {
+    name: String;
+    icon: String;
+    description?: String
+    urlProject?: String;
+    urlSource?: String;
+    image?: String;
+    author?: String;
+    
+    constructor(name, description, urlProject, urlSource, image, author, icon) {
+        this.name = (name !== "") ? name : "Coming Soon...";
+        this.description = description;
+        this.author = author;
+        this.urlProject = urlProject;
+        this.urlSource = urlSource;
+        this.image = image;
+        this.icon = icon;
+    }
+}

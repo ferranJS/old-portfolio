@@ -1,0 +1,130 @@
+.project {    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+}
+
+.project-title {
+    text-align: center;
+}
+
+.p-icon {
+    width: 4em;
+    display: inline-block;
+    border-radius: 60px;
+    padding: 0.4em 0.4em;  
+    color: #29323c;
+    background-color: white;
+
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+
+    -webkit-box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+    -moz-box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+    box-shadow: 0px 0px 48px 2px rgba(77, 81, 124, 0.356);
+}
+
+.p-icon:hover,
+.p-icon:focus {
+    transform: scale(1.05);
+}
+
+.project-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 3.75rem;
+    margin-bottom: 6.25rem;
+}
+
+.project-sample {
+    width: 40%;
+
+    -webkit-box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+    -moz-box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+    box-shadow: 0px 0px 48px 8px rgba(77, 81, 124, 0.356);
+
+    border-radius: 20px;
+    
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+}
+
+.project-sample:hover,
+.project-sample:focus {
+    transform: scale(1.014);
+}
+
+.project-content {
+    margin-right: 24px;
+}
+
+.project-title {
+    color: #0b2448;
+    font-family: 'Rubik';
+    text-align: start;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+}
+
+.project-description {
+    color: #3a4e6c;
+    margin: 0 0 1.5rem;
+    font-family: 'Rubik';
+    text-align: start;
+    max-width: 400px;
+}
+
+.project-author {
+    color: #182333;
+    font-size: small;
+    margin: 0 0 1.5rem;
+    font-family: 'Rubik';
+    text-align: end;
+    padding-right: 10%;
+    max-width: 400px;
+}
+
+.project-buttons {
+
+    display: flex;
+    justify-content: center;
+}
+
+.project-buttons a {
+    color: #fff !important;
+}
+
+.project-sample-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    .project-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-sample {
+        width: 80%;
+        height: 100%;
+        margin-bottom: 40px;
+    }
+
+    .project-content {
+        margin-left: 20px;
+        margin-bottom: 24px;
+    }
+  }

@@ -1,0 +1,17 @@
+<section class="about">
+  <div class="text-center">
+    <h2 class="h2 theme-light">About this site</h2>
+    <p class="subtitle theme-light">
+      Implemented by Ferran, including cool background and style
+      functionalities.
+    </p>
+  </div>
+
+  <div class="team-members">
+    <app-team-member
+      *ngFor="let member of team; let indice = index"
+      [member]="member"
+      [index]="indice"
+    ></app-team-member>
+  </div>
+</section>
