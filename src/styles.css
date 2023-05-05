@@ -7,8 +7,8 @@
 }
 
 *::selection {
-  background: rgb(245, 225, 255);
-  color: rgb(67, 60, 120);
+  background: rgb(229, 219, 234);
+  color: rgb(43, 38, 76);
 }
 /* transiciones entre gradientes */
 html {
@@ -33,7 +33,7 @@ body {
     #c4ffde
   );
   background-size: 250% 250%;
-  animation: gradient 9s ease infinite;
+  animation: gradient 10s ease infinite;
   font-family: "Rubik";
 }
 @keyframes gradient {
@@ -79,16 +79,6 @@ body {
 
 .h4 {
   font-size: 1rem;
-}
-
-.subtitle {
-  color: #3a4e6c;
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
-  text-align: center;
-  max-width: 720px; /* Como .container */
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 section {

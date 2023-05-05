@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
   projectList: Project[] = [
     { name: "Cellular Stuff",
-     description: "Visual, interactive and educative representation and explanation of a One-dimensional Cellular Automaton.", 
+     description: "Visual, interactive and educational representation and explanation of a One-dimensional Cellular Automaton.", 
      author:"Ferran Ramírez Martí", 
      urlProject: "https://cellular-stuff.netlify.app", 
      urlSource: "https://gitlab.com/ferranJS/cellular-automaton-web",

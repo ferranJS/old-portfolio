@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
 
   team: TeamMember[] = [
     {
-      name: "Ferran Ramírez Martí", position: "Apps Implementation and web development", portrait: "./assets/portraits/ferran.jpeg",
+      name: "Ferran Ramírez Martí", position: "Web & App Developer ", portrait: "./assets/portraits/ferran.jpeg",
       description: "Computing Engineer graduated in Computer Science", 
       social: [
         {name: 'linkedin', class: "fa fab fa-linkedin", href: "https://www.linkedin.com/in/ferran-ramirez/"},

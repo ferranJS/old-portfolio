@@ -3,12 +3,14 @@ import * as p5 from 'p5';
 
 // import Ball from './ball.model';
 
+let speed = 0.4;
 @Component({
   selector: 'app-background',
   standalone: true,
   template: ``,
   styles: [``]
 })
+
 
 export class BackgroundComponent implements OnInit {
   MAX_BALLS: number = 200; //default
@@ -38,7 +40,7 @@ export class BackgroundComponent implements OnInit {
       // console.log("document.documentElement.clientWidth: ", document.documentElement.clientWidth);
       // console.log("document.body.clientWidth: ", document.body.clientWidth);
       p5.setup = () => {      
-        p5.frameRate(40);
+        p5.frameRate(30);
 
         console.log("p5.windowHeight: ", p5.windowHeight);
         this.MAX_BALLS = (p5.windowHeight + this.ancho)/13; //this is the real number of balls
@@ -46,8 +48,7 @@ export class BackgroundComponent implements OnInit {
         if(p5.windowHeight > this.ancho) {
           this.MAX_BALLS = this.MAX_BALLS;
           this.STRING_MIN = 15;   
-          
-          p5.frameRate(30);
+          speed = 0.5;
         }
         
         this.canvas = p5.createCanvas(this.ancho, this.alto * 3.06);
@@ -155,6 +156,7 @@ export class Ball {
     this.y = y;
     if(document.body.scrollHeight > document.body.scrollWidth) {
       this.alpha = 50;
+      this.hoverRadius = 100;
     }
   }
   
@@ -175,8 +177,8 @@ export class Ball {
     if(this.cerca(p5.mouseX, p5.mouseY)) {
 
       if(p5.windowHeight > p5.windowWidth) {
-        this.x += (this.x - p5.mouseX) * 0.15;
-        this.y += (this.y - p5.mouseY) * 0.15; 
+        this.x -= (this.x - p5.mouseX) * 0.15;
+        this.y -= (this.y - p5.mouseY) * 0.15; 
 
         tembleque = 3;
       } else {
@@ -184,9 +186,9 @@ export class Ball {
         let xIncrement = this.x - p5.mouseX
         let yIncrement = this.y - p5.mouseY
         if (Math.abs(xIncrement) > Math.abs(yIncrement))
-          this.x += (xIncrement > 0 ? 200 - xIncrement : -200 - xIncrement)*0.05;
+          this.x += (xIncrement > 0 ? this.hoverRadius - xIncrement : -this.hoverRadius - xIncrement)*speed;
         else
-          this.y += (yIncrement > 0 ? 200 - yIncrement : -200 - yIncrement)*0.05;
+          this.y += (yIncrement > 0 ? this.hoverRadius - yIncrement : -this.hoverRadius - yIncrement)*speed;
       }
 
     } else {

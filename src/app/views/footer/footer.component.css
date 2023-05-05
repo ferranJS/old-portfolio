@@ -9,6 +9,7 @@
 }
 
 .link {
+  text-shadow: black 0px 0px 4px;
   text-decoration: none;
   color: white;
 }
