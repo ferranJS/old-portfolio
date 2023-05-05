@@ -13,3 +13,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.subtitle {
+  color: #3a4e6c;
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 720px; /* Como .container */
+  margin-left: 10px;
+  margin-right: 10px;
+}
