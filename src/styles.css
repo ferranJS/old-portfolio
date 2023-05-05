@@ -33,7 +33,7 @@ body {
     #c4ffde
   );
   background-size: 250% 250%;
-  animation: gradient 9s ease infinite;
+  animation: gradient 10s ease infinite;
   font-family: "Rubik";
 }
 @keyframes gradient {

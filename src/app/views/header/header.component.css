@@ -84,10 +84,12 @@ h2:hover {
     text-shadow: none;
     color: white;
     opacity: 1;
+    transform: none;
   }
   30% {
     text-shadow: 2px 7px rgb(121, 152, 255);
     color: rgb(255, 161, 147);
+    transform: skew(-0.6deg, -1deg);
     opacity: 0.9;
   }
   35% {
@@ -97,12 +99,14 @@ h2:hover {
   }
   52% {
     text-shadow: none;
+    transform: none;
     color: white;
     opacity: 1;
   }
   55% {
     text-shadow: -6px -2px rgb(211, 255, 153);
     color: rgb(255, 169, 226);
+    transform: skew(0.6deg, 0.2deg);
     opacity: 0.9;
   }
   50% {
@@ -113,11 +117,13 @@ h2:hover {
   72% {
     text-shadow: none;
     color: white;
+    transform: none;
     opacity: 1;
   }
   75% {
     text-shadow: 3px -5px rgb(140, 255, 245);
     color: rgb(255, 228, 154);
+    transform: skew(0.2deg, -0.8deg);
     opacity: 0.9;
   }
   80% {
@@ -137,11 +143,13 @@ h2:hover {
     text-shadow: none;
     color: white;
     opacity: 1;
+    transform: none;
   }
   7% {
     text-shadow: 6px 4px rgb(211, 255, 153);
     color: rgb(255, 169, 226);
     opacity: 0.9;
+    transform: skew(0.2deg, -0.8deg);
   }
   10% {
     text-shadow: none;
@@ -151,11 +159,13 @@ h2:hover {
   27% {
     text-shadow: none;
     color: white;
+    transform: none;
     opacity: 1;
   }
   30% {
     text-shadow: 3px -5px rgb(121, 152, 255);
     color: rgb(255, 161, 147);
+    transform: skew(-0.5deg, 0.5deg);
     opacity: 0.9;
   }
   35% {
