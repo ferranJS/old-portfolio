@@ -3,7 +3,7 @@ import * as p5 from 'p5';
 
 // import Ball from './ball.model';
 
-let speed = 0.05;
+let speed = 0.4;
 @Component({
   selector: 'app-background',
   standalone: true,
