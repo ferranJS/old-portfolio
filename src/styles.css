@@ -5,6 +5,11 @@
 * {
   box-sizing: border-box;
 }
+
+*::selection {
+  background: rgb(245, 225, 255);
+  color: rgb(67, 60, 120);
+}
 /* transiciones entre gradientes */
 html {
   width: 100%;
@@ -17,29 +22,29 @@ body {
   z-index: -5;
   background: linear-gradient(
     -45deg,
+    black,
     yellow,
-    #ffa55b,
-    #ff615b,
-    #e73c7e,
-    #cb3ce7,
-    #46b7e4,
-    #23d5ab,
+    yellow,
+    #ce8142,
+    #d53673,
+    #926ecc,
+    #6e83c4,
+    #2bcba6,
     #c4ffde
   );
-  background-size: 400% 400%;
-  animation: gradient 7s ease infinite;
-  text-shadow: 1px 1px #6161616e;
+  background-size: 250% 250%;
+  animation: gradient 9s ease infinite;
   font-family: "Rubik";
 }
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 90%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 }
 
@@ -88,6 +93,4 @@ body {
 
 section {
   width: 100%;
-  padding-top: 6%;
-  padding-bottom: 6%;
 }

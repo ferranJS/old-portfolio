@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
       description: "Computing Engineer graduated in Computer Science", 
       social: [
         {name: 'linkedin', class: "fa fab fa-linkedin", href: "https://www.linkedin.com/in/ferran-ramirez/"},
-        {name: "gitlab", class: "fa fab fa-gitlab",  href: "https://gitlab.com/ferranJS"}
+        {name: "github", class: "fa fab fa-github",  href: "https://github.com/ferranJS"}
       ]
     }
   ];

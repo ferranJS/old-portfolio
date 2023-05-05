@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as p5 from 'p5';
 
-import Ball from './ball.model';
+// import Ball from './ball.model';
 
 @Component({
   selector: 'app-background',
@@ -17,10 +17,9 @@ export class BackgroundComponent implements OnInit {
   balls: Ball[] = [];
   alto!: number;
   ancho!: number;
-  transp!: number;
-  sW!: number;
+  alpha!: number;
+  lineWidth!: number;
   canvas!: { parent: (arg0: string) => void; position: (arg0: number, arg1: number) => void; style: (arg0: string, arg1: string) => void; };
-  p5!: p5;
 
   constructor() { }
 
@@ -31,13 +30,13 @@ export class BackgroundComponent implements OnInit {
         document.body.scrollWidth,
         document.body.offsetWidth,
         document.body.clientWidth,
-      );; // Esta medida es más precisa que windowWidth
-      console.log("document.body.scrollWidth: ", document.body.scrollWidth);
-      console.log("document.documentElement.scrollWidth: ", document.documentElement.scrollWidth);
-      console.log("document.documentElement.offsetWidth: ", document.documentElement.offsetWidth);
-      console.log("document.body.offsetWidth: ", document.body.offsetWidth);
-      console.log("document.documentElement.clientWidth: ", document.documentElement.clientWidth);
-      console.log("document.body.clientWidth: ", document.body.clientWidth);
+      ); // Esta medida es más precisa que windowWidth
+      // console.log("document.body.scrollWidth: ", document.body.scrollWidth);
+      // console.log("document.documentElement.scrollWidth: ", document.documentElement.scrollWidth);
+      // console.log("document.documentElement.offsetWidth: ", document.documentElement.offsetWidth);
+      // console.log("document.body.offsetWidth: ", document.body.offsetWidth);
+      // console.log("document.documentElement.clientWidth: ", document.documentElement.clientWidth);
+      // console.log("document.body.clientWidth: ", document.body.clientWidth);
       p5.setup = () => {      
         p5.frameRate(40);
 
@@ -45,13 +44,13 @@ export class BackgroundComponent implements OnInit {
         this.MAX_BALLS = (p5.windowHeight + this.ancho)/13; //this is the real number of balls
         console.log(this.MAX_BALLS)
         if(p5.windowHeight > this.ancho) {
-          this.MAX_BALLS = 0.7*this.MAX_BALLS;
+          this.MAX_BALLS = this.MAX_BALLS;
           this.STRING_MIN = 15;   
           
-          p5.frameRate(20);
+          p5.frameRate(30);
         }
         
-        this.canvas = p5.createCanvas(this.ancho, this.alto * 3);
+        this.canvas = p5.createCanvas(this.ancho, this.alto * 3.06);
         this.canvas.parent("appContainer");
         this.canvas.position(0, 0);
         this.canvas.style('z-index', '-1');
@@ -64,21 +63,21 @@ export class BackgroundComponent implements OnInit {
 
             // Alrededor del logo
             if(randY <= p5.windowHeight * 0.37) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
             else if(randY >= p5.windowHeight * 0.65 && randY <= p5.windowHeight * 0.9) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
             //inbetween
             else if(randY >= p5.windowHeight * 1.8 && randY <= p5.windowHeight * 2.35) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
             // Los lados
             else if(randX <= this.ancho * 0.14) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
             else if(randX >= this.ancho * 0.78) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
           }  
         }else {
@@ -87,19 +86,19 @@ export class BackgroundComponent implements OnInit {
             var randX = Math.random() * (this.ancho + 10) - 10;
             var randY = Math.random() * (p5.windowHeight * 3 + 10) - 10;
             if(randY <= p5.windowHeight * 0.37) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
             else if(randY >= p5.windowHeight * 0.65) {
-              this.balls.push(new Ball(randX, randY, p5));
+              this.balls.push(new Ball(randX, randY));
             }
           }
         }
-        //color y transparencia de todo
-        this.transp = 150;
-        this.sW = 0.4;
-        if(this.p5.windowHeight > this.ancho) {
-          this.transp = 20;
-          this.sW = 1.5;
+        //color y alphaarencia de todo
+        this.alpha = 150;
+        this.lineWidth = 0.4;
+        if(p5.windowHeight > this.ancho) {
+          this.alpha = 30;
+          this.lineWidth = 1.5;
         }
       }
     
@@ -113,7 +112,7 @@ export class BackgroundComponent implements OnInit {
         p5.quad(0, p5.windowHeight * 1.08, this.ancho+20, p5.windowHeight * 1.02, this.ancho+20, p5.windowHeight * 2.95, 0, p5.windowHeight * 2.99);
 
         // Dibuja las Líneas que unen (a optimizar mucho)
-        p5.strokeWeight(this.sW);   
+        p5.strokeWeight(this.lineWidth);   
         //coste de n^2
         this.balls.forEach(p => {               //for (let i = 0; i < items.length - 1; i++) {          ASÍ NUNCA SE 
           this.balls.forEach(q => {               //  for (let j = i + 1; j < items.length; j++) {     COMPARA A SI MISMO!
@@ -123,9 +122,9 @@ export class BackgroundComponent implements OnInit {
 
               if(z < this.STRING_MAX && z > this.STRING_MIN) {
                 if(p.y > this.alto + 45) {
-                  this.p5.stroke(0, this.transp);
+                  p5.stroke(0, this.alpha);
                 } else {
-                  this.p5.stroke(255, this.transp);
+                  p5.stroke(255, this.alpha);
                 }
                 p5.line(p.x, p.y, q.x, q.y);
               }
@@ -135,25 +134,74 @@ export class BackgroundComponent implements OnInit {
 
         // Dibuja las bolas
         this.balls.forEach(p => {
-          p.show();
+          p.show(p5);
         });
-      }
-
-      //pelotillas are relocated when resized
-      p5.windowResized = () => {
-        p5.resizeCanvas(this.ancho, p5.windowHeight * 3);
-        var ry = p5.windowHeight / this.alto;
-        var rx = this.ancho / this.ancho;
-
-        this.balls.forEach(p => {
-          p.position(p.x * rx, p.y * ry);
-        });
-        
-      this.alto = p5.windowHeight;
-      this.ancho = this.ancho;
       }
     }
 
-    this.p5 = new p5(sketch);
+    new p5(sketch);
+  }
+}
+
+export class Ball {
+  x;
+  y;
+  lineWidth = 5;
+  hoverRadius = 200;
+  alpha = 160
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+    if(document.body.scrollHeight > document.body.scrollWidth) {
+      this.alpha = 50;
+    }
+  }
+  
+  show(p5: p5) {      
+    //umbral para el color de cada bola
+    var yi = -this.x * 0.029166 + p5.windowHeight * 1.08;
+
+    if(this.y > yi) {
+      p5.stroke(0, this.alpha);
+    } else {
+      p5.stroke(255, this.alpha);
+    }
+
+    p5.strokeWeight(this.lineWidth);
+    p5.point(this.x, this.y);
+
+    // Reacción con el cursor
+    if(this.cerca(p5.mouseX, p5.mouseY)) {
+
+      if(p5.windowHeight > p5.windowWidth) {
+        this.x += (this.x - p5.mouseX) * 0.15;
+        this.y += (this.y - p5.mouseY) * 0.15; 
+
+        tembleque = 3;
+      } else {
+        //las bolas se aproximan al cursor, queda más smooth que si se alejan
+        let xIncrement = this.x - p5.mouseX
+        let yIncrement = this.y - p5.mouseY
+        if (Math.abs(xIncrement) > Math.abs(yIncrement))
+          this.x += (xIncrement > 0 ? 200 - xIncrement : -200 - xIncrement)*0.05;
+        else
+          this.y += (yIncrement > 0 ? 200 - yIncrement : -200 - yIncrement)*0.05;
+      }
+
+    } else {
+      // El tembleque
+      var tembleque = 1.5;
+      var randX = Math.random() * tembleque - tembleque/2;
+      var randY = Math.random() * tembleque - tembleque/2;
+
+      this.x += randX
+      this.y += randY
+    }      
+  }
+  
+  cerca(x: number, y: number) {
+    let z = Math.sqrt((x - this.x) * (x - this.x) + (y - this.y) * (y - this.y));
+    return z < this.hoverRadius;
   }
 }
