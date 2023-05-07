@@ -1,10 +1,10 @@
 
-const speed = 0.4;
+let speed = 0.4;
 
-const MAX_BALLS = 200; //default
-const STRING_MAX = 170;
-const STRING_MIN = 30;
-const balls = [];
+let MAX_BALLS = 180; //default
+let STRING_MAX = 160;
+let STRING_MIN = 50;
+let balls = [];
 let alto;
 let ancho;
 let alpha;
@@ -12,8 +12,8 @@ let lineWidth;
 let canvas;
 
 function setup() {
-  this.alto = p5.windowHeight; 
-  this.ancho = Math.max(
+  alto = windowHeight; 
+  ancho = Math.max(
     document.body.scrollWidth,
     document.body.offsetWidth,
     document.body.clientWidth,
@@ -24,105 +24,105 @@ function setup() {
   // console.log("document.body.offsetWidth: ", document.body.offsetWidth);
   // console.log("document.documentElement.clientWidth: ", document.documentElement.clientWidth);
   // console.log("document.body.clientWidth: ", document.body.clientWidth);    
-  p5.frameRate(30);
+  frameRate(27);
 
-  console.log("p5.windowHeight: ", p5.windowHeight);
-  this.MAX_BALLS = (p5.windowHeight + this.ancho)/13; //this is the real number of balls
-  console.log(this.MAX_BALLS)
-  if(p5.windowHeight > this.ancho) {
-    this.MAX_BALLS = this.MAX_BALLS;
-    this.STRING_MIN = 15;   
+  console.log("windowHeight: ", windowHeight);
+  MAX_BALLS = (windowHeight + ancho)/13; //is the real number of balls
+  console.log(MAX_BALLS)
+  if(windowHeight > ancho) {
+    MAX_BALLS = MAX_BALLS;
+    STRING_MIN = 15;   
     speed = 0.5;
   }
   
-  this.canvas = p5.createCanvas(this.ancho, this.alto * 3.06);
-  this.canvas.parent("appContainer");
-  this.canvas.position(0, 0);
-  this.canvas.style('z-index', '-1');
+  canvas = createCanvas(ancho, alto * 3.06);
+  canvas.parent("appContainer");
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
 
-  if(p5.windowHeight < this.ancho) {
+  if(windowHeight < ancho) {
   //pc
-    while(this.balls.length < this.MAX_BALLS) {
-      var randX = Math.random() * (this.ancho + 10) - 10;
-      var randY = Math.random() * (p5.windowHeight * 3 + 10) - 10;
+    while(balls.length < MAX_BALLS) {
+      var randX = Math.random() * (ancho + 10) - 10;
+      var randY = Math.random() * (windowHeight * 3 + 10) - 10;
 
       // Alrededor del logo
-      if(randY <= p5.windowHeight * 0.37) {
-        this.balls.push(new Ball(randX, randY));
+      if(randY <= windowHeight * 0.37) {
+        balls.push(new Ball(randX, randY));
       }
-      else if(randY >= p5.windowHeight * 0.65 && randY <= p5.windowHeight * 0.9) {
-        this.balls.push(new Ball(randX, randY));
+      else if(randY >= windowHeight * 0.65 && randY <= windowHeight * 0.9) {
+        balls.push(new Ball(randX, randY));
       }
       //inbetween
-      else if(randY >= p5.windowHeight * 1.8 && randY <= p5.windowHeight * 2.35) {
-        this.balls.push(new Ball(randX, randY));
+      else if(randY >= windowHeight * 1.8 && randY <= windowHeight * 2.35) {
+        balls.push(new Ball(randX, randY));
       }
       // Los lados
-      else if(randX <= this.ancho * 0.14) {
-        this.balls.push(new Ball(randX, randY));
+      else if(randX <= ancho * 0.14) {
+        balls.push(new Ball(randX, randY));
       }
-      else if(randX >= this.ancho * 0.78) {
-        this.balls.push(new Ball(randX, randY));
+      else if(randX >= ancho * 0.78) {
+        balls.push(new Ball(randX, randY));
       }
     }  
   }else {
   //móvil
-    while(this.balls.length < this.MAX_BALLS) {
-      var randX = Math.random() * (this.ancho + 10) - 10;
-      var randY = Math.random() * (p5.windowHeight * 3 + 10) - 10;
-      if(randY <= p5.windowHeight * 0.37) {
-        this.balls.push(new Ball(randX, randY));
+    while(balls.length < MAX_BALLS) {
+      var randX = Math.random() * (ancho + 10) - 10;
+      var randY = Math.random() * (windowHeight * 3 + 10) - 10;
+      if(randY <= windowHeight * 0.37) {
+        balls.push(new Ball(randX, randY));
       }
-      else if(randY >= p5.windowHeight * 0.65) {
-        this.balls.push(new Ball(randX, randY));
+      else if(randY >= windowHeight * 0.65) {
+        balls.push(new Ball(randX, randY));
       }
     }
   }
   //color y alphaarencia de todo
-  this.alpha = 150;
-  this.lineWidth = 0.4;
-  if(p5.windowHeight > this.ancho) {
-    this.alpha = 30;
-    this.lineWidth = 1.5;
+  alpha = 150;
+  lineWidth = 0.4;
+  if(windowHeight > windowWidth) {
+    alpha = 20;
+    lineWidth = 1.5;
   }
 }
 
 function draw() {
       
-  p5.clear();
+  clear();
 
   // background parcial
-  p5.noStroke();
-  p5.quad(0, p5.windowHeight * 1.08, this.ancho+20, p5.windowHeight * 1.02, this.ancho+20, p5.windowHeight * 2.95, 0, p5.windowHeight * 2.99);
+  noStroke();
+  quad(0, windowHeight * 1.08, ancho+20, windowHeight * 1.02, ancho+20, windowHeight * 2.95, 0, windowHeight * 2.99);
 
   // Dibuja las Líneas que unen (a optimizar mucho)
-  p5.strokeWeight(this.lineWidth);   
+  strokeWeight(lineWidth);   
   //coste de n^2
-  this.balls.forEach(p => {               //for (let i = 0; i < items.length - 1; i++) {          ASÍ NUNCA SE 
-    this.balls.forEach(q => {               //  for (let j = i + 1; j < items.length; j++) {     COMPARA A SI MISMO!
+  balls.forEach(p => {               //for (let i = 0; i < items.length - 1; i++) {          ASÍ NUNCA SE 
+    balls.forEach(q => {               //  for (let j = i + 1; j < items.length; j++) {     COMPARA A SI MISMO!
       // Using  x * x instead of Math.pow for efficiency
-      if(p != q && Math.abs(q.y - p.y) < this.STRING_MAX && Math.abs(q.x - p.x) < this.STRING_MAX){     //p!=q ahorra n ejecuciones, lo otro ya no sé  :/
+      if(p != q && Math.abs(q.y - p.y) < STRING_MAX && Math.abs(q.x - p.x) < STRING_MAX){     //p!=q ahorra n ejecuciones, lo otro ya no sé  :/
         let z = Math.sqrt((q.x - p.x) * (q.x - p.x) + (q.y - p.y) * (q.y - p.y));
 
-        if(z < this.STRING_MAX && z > this.STRING_MIN) {
-          if(p.y > this.alto + 45) {
-            p5.stroke(0, this.alpha);
+        if(z < STRING_MAX && z > STRING_MIN) {
+          if(p.y > alto + 45) {
+            stroke(0, alpha);
           } else {
-            p5.stroke(255, this.alpha);
+            stroke(200, alpha);
           }
-          p5.line(p.x, p.y, q.x, q.y);
+          line(p.x, p.y, q.x, q.y);
         }
       }
     });
   });  
 
   // Dibuja las bolas
-  this.balls.forEach(p => {
+  balls.forEach(p => {
     p.show(p5);
   });
 }
 
-export class Ball {
+class Ball {
   x;
   y;
   lineWidth = 5;
@@ -140,38 +140,28 @@ export class Ball {
   
   show(p5) {      
     //umbral para el color de cada bola
-    var yi = -this.x * 0.029166 + p5.windowHeight * 1.08;
+    var yi = -this.x * 0.029166 + windowHeight * 1.08;
 
     if(this.y > yi) {
-      p5.stroke(0, this.alpha);
+      stroke(0, this.alpha);
     } else {
-      p5.stroke(255, this.alpha);
+      stroke(255, this.alpha);
     }
 
-    p5.strokeWeight(this.lineWidth);
-    p5.point(this.x, this.y);
+    strokeWeight(this.lineWidth);
+    point(this.x, this.y);
 
     // Reacción con el cursor
-    if(this.cerca(p5.mouseX, p5.mouseY)) {
-
-      if(p5.windowHeight > p5.windowWidth) {
-        this.x -= (this.x - p5.mouseX) * 0.15;
-        this.y -= (this.y - p5.mouseY) * 0.15; 
-
-        tembleque = 3;
-      } else {
-        //las bolas se aproximan al cursor, queda más smooth que si se alejan
-        let xIncrement = this.x - p5.mouseX
-        let yIncrement = this.y - p5.mouseY
-        if (Math.abs(xIncrement) > Math.abs(yIncrement))
-          this.x += (xIncrement > 0 ? this.hoverRadius - xIncrement : -this.hoverRadius - xIncrement)*speed;
-        else
-          this.y += (yIncrement > 0 ? this.hoverRadius - yIncrement : -this.hoverRadius - yIncrement)*speed;
-      }
-
+    if(this.cerca(mouseX, mouseY)) {
+      let xIncrement = this.x - mouseX
+      let yIncrement = this.y - mouseY
+      if (Math.abs(xIncrement) > Math.abs(yIncrement))
+        this.x += (xIncrement > 0 ? this.hoverRadius - xIncrement : -this.hoverRadius - xIncrement)*speed;
+      else
+        this.y += (yIncrement > 0 ? this.hoverRadius - yIncrement : -this.hoverRadius - yIncrement)*speed;
     } else {
       // El tembleque
-      var tembleque = 1.5;
+      var tembleque = 1.7;
       var randX = Math.random() * tembleque - tembleque/2;
       var randY = Math.random() * tembleque - tembleque/2;
 
@@ -185,5 +175,3 @@ export class Ball {
     return z < this.hoverRadius;
   }
 }
-
-new BackgroundComponent().init();
