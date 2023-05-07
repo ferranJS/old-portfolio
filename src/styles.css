@@ -4,6 +4,8 @@
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 *::selection {
@@ -12,12 +14,14 @@
 }
 /* transiciones entre gradientes */
 html {
+  scroll-behavior: smooth !important;
   width: 100%;
 }
 body {
+  scroll-behavior: smooth !important;
+  color: #3a4e6c;
   width: 100%;
   margin: 0;
-  color: white;
   overflow-x: hidden;
   z-index: -5;
   background: linear-gradient(
