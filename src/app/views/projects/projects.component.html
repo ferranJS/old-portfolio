@@ -9,6 +9,7 @@
       [src]="project.icon"
       class="m-2 p-icon"
       (click)="selectProject(project)"
+      loading="lazy"
     />
   </div>
 
@@ -43,7 +44,11 @@
       [attr.href]="projectSelected.urlProject"
       target="_blank"
     >
-      <img class="project-sample-image" [src]="projectSelected.image" />
+      <img
+        class="project-sample-image"
+        [src]="projectSelected.image"
+        loading="lazy"
+      />
     </a>
   </div>
 </section>
