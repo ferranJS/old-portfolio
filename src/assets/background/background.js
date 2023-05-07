@@ -106,9 +106,9 @@ function draw() {
 
         if(z < STRING_MAX && z > STRING_MIN) {
           if(p.y > alto + 45) {
-            stroke(0, alpha);
+            stroke(50, alpha);
           } else {
-            stroke(200, alpha);
+            stroke(255, alpha);
           }
           line(p.x, p.y, q.x, q.y);
         }
@@ -151,6 +151,8 @@ class Ball {
     strokeWeight(this.lineWidth);
     point(this.x, this.y);
 
+    let now = new Date().getTime();
+
     // Reacción con el cursor
     if(this.cerca(mouseX, mouseY)) {
       let xIncrement = this.x - mouseX
@@ -159,11 +161,12 @@ class Ball {
         this.x += (xIncrement > 0 ? this.hoverRadius - xIncrement : -this.hoverRadius - xIncrement)*speed;
       else
         this.y += (yIncrement > 0 ? this.hoverRadius - yIncrement : -this.hoverRadius - yIncrement)*speed;
-    } else {
+    } else if (now % 2 == 0) {
       // El tembleque
       var tembleque = 1.7;
-      var randX = Math.random() * tembleque - tembleque/2;
-      var randY = Math.random() * tembleque - tembleque/2;
+      let random = Math.random()
+      var randX = random * tembleque - tembleque/2;
+      var randY = random * tembleque - tembleque/2;
 
       this.x += randX
       this.y += randY

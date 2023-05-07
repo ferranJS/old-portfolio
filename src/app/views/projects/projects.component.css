@@ -57,7 +57,7 @@
 }
 
 .project-title {
-  color: #0b2448;
+  color: #182333;
   text-align: start;
   font-size: 1.5rem;
   /* backdrop-filter: blur(10px) brightness(101%); */
@@ -88,7 +88,6 @@
 
 .btn {
   background: cornflowerblue;
-  color: white;
   padding: 10px;
   border-radius: 4px;
   margin: 5px;

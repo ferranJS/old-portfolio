@@ -1,8 +1,9 @@
-html, body {
-    scroll-behavior: smooth !important;
+html,
+body {
+  scroll-behavior: smooth !important;
 }
 
 .section {
-    height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 100%;
 }
