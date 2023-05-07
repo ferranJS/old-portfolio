@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
      urlProject: "https://cellular-stuff.netlify.app", 
      urlSource: "https://gitlab.com/ferranJS/cellular-automaton-web",
      icon: "../../../assets/icons/celula.png",
-     image: "../../../assets/samples/cellular-stuff-preview.gif"}
+     image: "../../../assets/samples/cellular-stuff-preview.PNG"}
   ];
 
   projectSelected!: Project;
