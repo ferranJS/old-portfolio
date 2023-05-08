@@ -7,10 +7,10 @@ import { Component, OnInit } from "@angular/core";
   standalone: true,
   template: `
     <div class="header">
-      <h2 class="h2">My projects</h2>
+      <h2>My projects</h2>
     </div>
 
-    <div class="wrapper">
+    <article class="wrapper">
       <div class="content">
         <h3 class="title">{{ projectSelected.name }}</h3>
         <p class="description">{{ projectSelected.description }}</p>
@@ -31,8 +31,9 @@ import { Component, OnInit } from "@angular/core";
           "
             [attr.href]="projectSelected.urlSource"
             target="_blank"
-            >Go to source</a
           >
+            Go to source
+          </a>
         </div>
       </div>
       <a
@@ -49,7 +50,7 @@ import { Component, OnInit } from "@angular/core";
           />
         </picture>
       </a>
-    </div>
+    </article>
   `,
   styles: [
     `
@@ -60,9 +61,6 @@ import { Component, OnInit } from "@angular/core";
         justify-content: center;
         align-items: center;
         gap: 50px;
-      }
-      .title {
-        text-align: center;
       }
       .wrapper {
         display: flex;
