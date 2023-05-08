@@ -6,159 +6,116 @@ import { Component, OnInit } from "@angular/core";
   selector: "app-projects",
   standalone: true,
   template: `
-    <section class="project">
-      <div class="project-header">
-        <h2 class="h2">My projects</h2>
-      </div>
+    <div class="header">
+      <h2 class="h2">My projects</h2>
+    </div>
 
-      <div class="project-icons">
-        <img
-          *ngFor="let project of projectList"
-          [src]="project.icon"
-          class="m-2 p-icon"
-          (click)="selectProject(project)"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="project-wrapper">
-        <div class="project-content">
-          <h3 class="project-title">{{ projectSelected.name }}</h3>
-          <p class="project-description">{{ projectSelected.description }}</p>
-          <div class="project-buttons">
-            <a
-              class="btn"
-              style="box-shadow: 0px 0px 7px -3px cornflowerblue"
-              [attr.href]="projectSelected.urlProject"
-              target="_blank"
-              >See project</a
-            >
-            <a
-              *ngIf="projectSelected.urlSource"
-              class="btn"
-              style="
+    <div class="wrapper">
+      <div class="content">
+        <h3 class="title">{{ projectSelected.name }}</h3>
+        <p class="description">{{ projectSelected.description }}</p>
+        <div class="buttons">
+          <a
+            class="btn"
+            style="box-shadow: 0px 0px 7px -3px cornflowerblue"
+            [attr.href]="projectSelected.urlProject"
+            target="_blank"
+            >See project</a
+          >
+          <a
+            *ngIf="projectSelected.urlSource"
+            class="btn"
+            style="
             background-color: rgb(108, 111, 146);
             box-shadow: 0px 0px 7px -3px rgb(108, 111, 146);
           "
-              [attr.href]="projectSelected.urlSource"
-              target="_blank"
-              >Go to source</a
-            >
-          </div>
+            [attr.href]="projectSelected.urlSource"
+            target="_blank"
+            >Go to source</a
+          >
         </div>
-
-        <a
-          class="project-sample"
-          [attr.href]="projectSelected.urlProject"
-          target="_blank"
-        >
-          <picture>
-            <source [srcset]="projectSelected.image" type="image/webp" />
-            <img
-              class="project-sample-image"
-              [src]="projectSelected.image2"
-              loading="lazy"
-            />
-          </picture>
-        </a>
       </div>
-    </section>
+      <a
+        class="sample"
+        [attr.href]="projectSelected.urlProject"
+        target="_blank"
+      >
+        <picture>
+          <source [srcset]="projectSelected.image" type="image/webp" />
+          <img
+            class="sample-image"
+            [src]="projectSelected.image2"
+            loading="lazy"
+          />
+        </picture>
+      </a>
+    </div>
   `,
   styles: [
     `
-      .project {
+      :host {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        padding-top: 100px;
+        gap: 50px;
       }
-
-      .project-title {
+      .title {
         text-align: center;
       }
-
-      .p-icon {
-        width: 4em;
-        display: inline-block;
-        border-radius: 50%;
-        padding: 0.4em 0.4em;
-        color: #29323c;
-        background-color: white;
-        transform: translateZ(0);
-        transition: transform 0.25s ease-out;
-        box-shadow: 0px 0px 10px 0px rgba(156, 157, 244, 0.356);
-      }
-
-      .p-icon:hover,
-      .p-icon:focus {
-        transform: scale(1.03);
-      }
-
-      .project-wrapper {
-        width: 100%;
+      .wrapper {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin-top: 3.75rem;
-        margin-bottom: 6.25rem;
+        gap: 20px;
       }
-
-      .project-sample {
-        width: 40%;
+      .sample {
         box-shadow: 0px 0px 10px 0px rgba(156, 157, 244, 0.356);
-        border-radius: 4px;
-        transform: translateZ(0);
-        transition: transform 0.25s ease-out;
+        border-radius: 20px;
+        transition: 0.15s;
       }
-
-      .project-sample:hover,
-      .project-sample:focus {
-        transform: scale(1.014);
+      .sample:hover,
+      .sample:focus {
+        transform: scale(1.008);
       }
-
-      .project-content {
-        margin-right: 24px;
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
-
-      .project-title {
+      .title {
         color: #182333;
         text-align: start;
         font-size: 1.5rem;
         /* backdrop-filter: blur(10px) brightness(101%); */
         line-height: 1.75rem;
       }
-
-      .project-description {
+      .description {
         color: #3a4e6c;
-        margin: 0 0 1.5rem;
         /* backdrop-filter: blur(10px) brightness(101%); */
         text-align: start;
         max-width: 400px;
       }
-
-      .project-author {
+      .author {
         color: #182333;
         font-size: small;
-        margin: 0 0 1.5rem;
         text-align: end;
-        padding-right: 10%;
         max-width: 400px;
       }
-
-      .project-buttons {
+      .buttons {
         display: flex;
         justify-content: center;
+        gap:  20px;
       }
-
       .btn {
-        background: cornflowerblue;
+        color: #fff;
         padding: 10px;
+        background: cornflowerblue;
         border-radius: 4px;
-        margin: 5px;
         text-decoration: none;
         transition: 0.2s;
       }
@@ -166,36 +123,17 @@ import { Component, OnInit } from "@angular/core";
         opacity: 85%;
         transition: 0.2s;
       }
-
-      .project-buttons a {
-        color: #fff !important;
-      }
-
-      .project-sample-image {
-        width: 100%;
-        height: 100%;
+      .sample-image {
         border-radius: 20px;
+        max-width: 100%;
       }
 
-      @media only screen and (max-width: 768px) {
-        /* For mobile phones: */
-
-        .project-wrapper {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+      @media only screen and (min-width: 768px) {
+        .wrapper {
+          flex-direction: row;
         }
-
-        .project-sample {
-          width: 80%;
-          height: 100%;
-          margin-bottom: 40px;
-        }
-
-        .project-content {
-          margin-left: 20px;
-          margin-bottom: 24px;
+        .content {
+          align-items: flex-start;
         }
       }
     `,

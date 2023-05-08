@@ -4,57 +4,31 @@ import { Component, OnInit } from "@angular/core";
   selector: "app-header",
   standalone: true,
   template: `
-    <section class="header">
-      <!-- 
-  <div class="language btn-group btn-group-toggle" data-toggle="buttons">
-    <button class="btn btn-dark btn-sm">Es</button>
-    <button class="btn btn-dark btn-sm">En</button>
-  </div> -->
-      <div id="logo">
-        <h1><span style="font-size: 1.15em">F</span>erran Ramírez</h1>
-        <h2 class="changing"></h2>
-      </div>
-      <div class="scroll-cta">
-        <div>Scroll down</div>
-        <img
-          src="../../assets/icons/scroll-arrow.gif"
-          style="width: 30px"
-          alt="scroll down"
-        />
-      </div>
-    </section>
+    <div id="logo">
+      <h1><span style="font-size: 1.15em">F</span>erran Ramírez</h1>
+      <h2 class="changing"></h2>
+    </div>
+    <div class="scroll-cta">
+      <div>Scroll down</div>
+      <img
+        src="../../assets/icons/scroll-arrow.gif"
+        style="width: 30px"
+        alt="scroll down"
+      />
+    </div>
   `,
   styles: [
     `
-      .header {
-        height: 100vh;
-        width: 100%;
+      :host {
+        height:100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        justify-content: space-around;
+        justify-content: center;
         color: white;
         font-family: "Montserrat Alternates";
       }
-
-      .btn:focus {
-        outline: none;
-        box-shadow: none;
-      }
-
-      .btn {
-        opacity: 1;
-      }
-
-      .language {
-        width: 12%;
-        display: flex;
-        justify-content: space-around;
-        position: absolute;
-        top: 10px;
-      }
-
       .scroll-cta {
         display: flex;
         flex-direction: column;
@@ -62,16 +36,13 @@ import { Component, OnInit } from "@angular/core";
         position: absolute;
         bottom: 5px;
       }
-
       /* Logo Glitch! */
-
       #logo {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
       }
-
       h1,
       h2 {
         opacity: 1;
@@ -91,7 +62,6 @@ import { Component, OnInit } from "@angular/core";
         opacity: 0.5;
         animation-duration: 2s;
       }
-
       .changing {
         display: inline;
         text-indent: 8px;
@@ -159,7 +129,7 @@ import { Component, OnInit } from "@angular/core";
         55% {
           text-shadow: -4px -1px rgb(211, 255, 153);
           color: rgb(255, 169, 226);
-          transform: skew(0.6deg, 0.2deg);
+          transform: skew(1.4deg, 0.5deg);
           opacity: 0.9;
         }
         50% {
@@ -202,7 +172,7 @@ import { Component, OnInit } from "@angular/core";
           text-shadow: 4px 0px rgb(211, 255, 153);
           color: rgb(255, 169, 226);
           opacity: 0.9;
-          transform: skew(0.5deg, -0.1deg);
+          transform: skew(1.5deg, -0.6deg);
         }
         10% {
           text-shadow: none;
@@ -218,7 +188,7 @@ import { Component, OnInit } from "@angular/core";
         30% {
           text-shadow: 2px -4px rgb(121, 152, 255);
           color: rgb(255, 161, 147);
-          transform: skew(-0.5deg, 0.1deg);
+          transform: skew(-1deg, 0.1deg);
           opacity: 0.9;
         }
         35% {

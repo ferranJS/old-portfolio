@@ -7,31 +7,30 @@ import { TeamMember } from "src/app/models/team-member.model";
   selector: "app-team-member",
   standalone: true,
   template: `
-    <div class="team">
-      <a href="https://www.linkedin.com/in/ferran-ramirez/" target="_blank">
-        <picture>
-          <source srcset="/assets/images/ferran.webp" type="image/webp" />
-          <img
-            class="team-portrait"
-            style="box-shadow: 0px 0px 10px -3px #b5afa7"
-            loading="lazy"
-            src="/assets/images/ferran.jpg"
-          />
-        </picture>
-      </a>
-      <div class="team-content">
-        <p style="margin-bottom: 8px">
-          <strong class="h4" style="color: rgb(17, 17, 17)">{{
-            member.name
-          }}</strong>
-        </p>
-        <div class="body" style="color: rgb(17, 17, 17)">
-          {{ member.position }}
-        </div>
-        <p class="body" style="color: rgb(17, 17, 17)">
-          {{ member.description }}
-        </p>
-
+    <a href="https://www.linkedin.com/in/ferran-ramirez/" target="_blank">
+      <picture>
+        <source srcset="/assets/images/ferran.webp" type="image/webp" />
+        <img
+          class="team-portrait"
+          style="box-shadow: 0px 0px 10px -3px #b5afa7"
+          loading="lazy"
+          src="/assets/images/ferran.jpg"
+        />
+      </picture>
+    </a>
+    <div class="team-content">
+      <p>
+        <strong class="h4">{{
+          member.name
+        }}</strong>
+      </p>
+      <div>
+        {{ member.position }}
+      </div>
+      <p>
+        {{ member.description }}
+      </p>
+      <div class="socials">
         <a
           *ngFor="let social of member.social"
           class="team-social"
@@ -45,38 +44,43 @@ import { TeamMember } from "src/app/models/team-member.model";
         </a>
       </div>
     </div>
-
     <!-- [ngClass]="{'fade-in': !load, 'fade-in-loaded': load}" -->
   `,
   styles: [
     `
-      .team {
+      :host {
+        color: rgb(17, 17, 17);
         display: flex;
         align-items: center;
-        margin: 0 10px;
+        justify-content: center;
+        gap: 20px;
       }
-
+      .team-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+      }
       .team-portrait {
         height: 156px;
         border-radius: 50%;
-        margin-right: 8px;
       }
-
-      .team-content {
-        margin-left: 8px;
+      .socials {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        font-size: 1.35rem;
       }
-
-      .team-social {
-        font-size: 1.3rem;
-        margin: 7px;
-      }
-
       .team-icon {
         color: #0b2448;
       }
 
       .team-icon:hover {
         color: #000;
+        scale: 1.05;
+        transition:0.1s
       }
     `,
   ],

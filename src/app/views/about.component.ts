@@ -7,24 +7,26 @@ import { TeamMemberComponent } from "../components/team-member.component";
 @Component({
   selector: "app-about",
   standalone: true,
-  template: `<section class="about">
-    <div class="text-center">
-      <h2 class="h2">About me</h2>
-      <p class="subtitle" style="color: rgb(17, 17, 17)">
-        Engineer with 2 years of experience as a Full Stack developer.
-      </p>
-      <p class="subtitle" style="color: rgb(17, 17, 17)">
-        I have experience in Angular, RxJS, Firebase, Ionic, Capacitor and agile
-        CSS withTailwind ✅
-      </p>
-      <p class="subtitle" style="color: rgb(17, 17, 17)">
-        Applying the best practices and up to date with other technologies that
-        make up Full Stack development, how they correlate with each other and
-        their importance and power in the industry 🔎
-      </p>
-      <p class="subtitle" style="color: rgb(17, 17, 17)">
-        Veryinterested in React, NextJS 13, tRPC, Redux, etc. ❤️
-      </p>
+  template: `
+    <div class="about-me">
+      <h2>About me</h2>
+      <div class="description">
+        <p>
+          Engineer with 2 years of experience as a Full Stack developer.
+        </p>
+        <p>
+          I have experience in Angular, RxJS, Firebase, Ionic, Capacitor and agile
+          CSS withTailwind ✅
+        </p>
+        <p>
+          Applying the best practices and up to date with other technologies that
+          make up Full Stack development, how they correlate with each other and
+          their importance and power in the industry 🔎
+        </p>
+        <p>
+          Very interested in React, NextJS 13, tRPC, Redux, etc. ❤️
+        </p>
+      </div>
     </div>
 
     <div class="team-members">
@@ -34,33 +36,37 @@ import { TeamMemberComponent } from "../components/team-member.component";
         [index]="indice"
       ></app-team-member>
     </div>
-  </section> `,
+  `,
   styles: [
     `
-      .about {
-        height: 95%;
+      :host {
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 16%;
         gap: 50px;
-        padding-bottom: 6%;
       }
-
+      .about-me {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
       .team-members {
         display: flex;
         flex-direction: column;
       }
 
-      .subtitle {
-        color: #3a4e6c;
-        margin: 0 0 1.5rem;
+      .description {
+        display:flex;
+        flex-direction: column;
+        color: rgb(17, 17, 17);
         font-size: 1rem;
         text-align: center;
-        max-width: 720px; /* Como .container */
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 700px;
+        gap: 10px;
       }
     `,
   ],

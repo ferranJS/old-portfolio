@@ -13,21 +13,18 @@
   color: rgb(43, 38, 76);
 }
 /* transiciones entre gradientes */
-html {
-  scroll-behavior: smooth !important;
+html,
+body {
   width: 100%;
+  color: #3a4e6c;
+  margin: 0;
+  font-family: "Rubik";
+  overflow-x: hidden;
 }
 body {
-  scroll-behavior: smooth !important;
-  color: #3a4e6c;
-  width: 100%;
-  margin: 0;
-  overflow-x: hidden;
   z-index: -5;
   background: linear-gradient(
     -45deg,
-    black,
-    yellow,
     yellow,
     #ce8142,
     #d53673,
@@ -38,7 +35,6 @@ body {
   );
   background-size: 250% 250%;
   animation: gradient 10s ease infinite;
-  font-family: "Rubik";
 }
 @keyframes gradient {
   0% {
@@ -62,16 +58,16 @@ body {
   user-select: none;
 }
 
-.h1,
-.h2,
-.h3,
-.h4 {
+h1,
+h2,
+h3,
+h4 {
   color: #0b2448;
   font-weight: bold;
   text-align: center;
 }
 
-.h2 {
+h2 {
   font-size: 2.375rem;
   line-height: 2.875rem;
 }
@@ -83,8 +79,4 @@ body {
 
 .h4 {
   font-size: 1rem;
-}
-
-section {
-  width: 100%;
 }

@@ -6,52 +6,75 @@ import { AboutComponent } from "./views/about.component";
 import { FooterComponent } from "./views/footer.component";
 
 @Component({
-    selector: "app-root",
-    standalone: true,
-    template: `
-    <div
-      id="appContainer"
-      style="
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      "
-    >
-      <!-- <app-navigation-dots
-    class="section"
-    [sections]="sections"
-  ></app-navigation-dots> -->
-
-      <app-header class="section"></app-header>
-      <div id="sec3" class="section">
+  selector: "app-root",
+  standalone: true,
+  template: `
+      <header>
+        <app-header></app-header>
+      </header>
+      <main id="appContainer">
+      <section>
         <app-about></app-about>
-        <app-projects id="sec2" class="section"></app-projects>
-        <app-footer></app-footer>
-      </div>
-    </div>
+      </section>
+      <section>
+        <app-projects></app-projects>
+      </section>
+    </main>
+    <footer>
+      <a
+        class="link"
+        href="https://github.com/ferranJS/old-portfolio"
+        target="_blank"
+      >
+        <i
+          class="fa fa-github fab"
+          style="font-size: 1.2rem"
+          aria-hidden="true"
+        >
+        </i>
+        &nbsp; Made with
+        <p class="fa-spin" style="display: inline-block">💖</p>
+        and
+        <p class="fa-spin" style="display: inline-block">☕</p>
+      </a>
+    </footer>
     <!-- <app-background></app-background> -->
   `,
-    styles: [
-        `
+  styles: [
+    `
+      :host{
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+      }
       html,
       body {
         scroll-behavior: smooth !important;
       }
-
-      .section {
-        height: 100vh;
-        width: 100%;
+      footer {
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        bottom: 0px;
+        margin-top: 30px;
+        padding: 0;
+      }
+      .link {
+        text-shadow: black 0px 0px 4px;
+        text-decoration: none;
+        color: white;
       }
     `,
-    ],
-    imports: [
-        CommonModule,
-        ProjectsComponent,
-        HeaderComponent,
-        AboutComponent,
-        FooterComponent
-    ]
+  ],
+  imports: [
+    CommonModule,
+    ProjectsComponent,
+    HeaderComponent,
+    AboutComponent,
+    FooterComponent,
+  ],
 })
 export class AppComponent implements OnInit {
   sections: string[] = ["sec1", "sec2", "sec3"];
