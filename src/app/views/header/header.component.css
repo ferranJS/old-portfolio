@@ -69,42 +69,24 @@ h2:hover {
   text-indent: 8px;
 }
 .changing:before {
-  content: "App ";
+  content: "Computing Engineer";
   animation: first-word 10s infinite linear;
-}
-.changing:after {
-  width: auto;
-  content: "Developer ";
-  animation: last-word 10s infinite linear;
 }
 @keyframes first-word {
   20% {
-    content: "App ";
+    content: "App Developer";
   }
   40% {
-    content: "Web  ";
+    content: "Web  Developer";
   }
   60% {
-    content: "Software ";
+    content: "Software Developer";
   }
   80% {
+    content: "Software Engineer";
   }
   100% {
-    content: "Computing ";
-  }
-}
-@keyframes last-word {
-  20% {
-    content: "Developer ";
-  }
-  40% {
-  }
-  60% {
-  }
-  80% {
-  }
-  100% {
-    content: "Engineer";
+    content: "Computing Engineer";
   }
 }
 @keyframes glitch1 {

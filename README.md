@@ -16,7 +16,7 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
     - *First Contentful Paint*: **>7s ➡ ~1.8s**
     - *Largest Contentful Paint*: **>10s ➡ ~3s**
     - *Background Downlaod & Execution*: **>20s ➡ ~5s**
-  - Packed Bundle Size: 
+  - Packed Bundle Size: **62MB ➡ 6MB**
 
 ## ✔️ Changes made
 
