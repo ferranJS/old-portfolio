@@ -20,9 +20,7 @@ import { TeamMember } from "src/app/models/team-member.model";
     </a>
     <div class="team-content">
       <p>
-        <strong class="h4">{{
-          member.name
-        }}</strong>
+        <strong class="h4">{{ member.name }}</strong>
       </p>
       <div>
         {{ member.position }}
@@ -80,7 +78,7 @@ import { TeamMember } from "src/app/models/team-member.model";
       .team-icon:hover {
         color: #000;
         scale: 1.05;
-        transition:0.1s
+        transition: 0.1s;
       }
     `,
   ],

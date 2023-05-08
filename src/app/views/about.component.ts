@@ -11,21 +11,17 @@ import { TeamMemberComponent } from "../components/team-member.component";
     <div class="about-me">
       <h2>About me</h2>
       <div class="description">
+        <p>Engineer with 2 years of experience as a Full Stack developer.</p>
         <p>
-          Engineer with 2 years of experience as a Full Stack developer.
+          I have experience in Angular, RxJS, Firebase, Ionic, Capacitor and
+          agile CSS withTailwind ✅
         </p>
         <p>
-          I have experience in Angular, RxJS, Firebase, Ionic, Capacitor and agile
-          CSS withTailwind ✅
+          Applying the best practices and up to date with other technologies
+          that make up Full Stack development, how they correlate with each
+          other and their importance and power in the industry 🔎
         </p>
-        <p>
-          Applying the best practices and up to date with other technologies that
-          make up Full Stack development, how they correlate with each other and
-          their importance and power in the industry 🔎
-        </p>
-        <p>
-          Very interested in React, NextJS 13, tRPC, Redux, etc. ❤️
-        </p>
+        <p>Very interested in React, NextJS 13, tRPC, Redux, etc ❤️</p>
       </div>
     </div>
 
@@ -60,7 +56,7 @@ import { TeamMemberComponent } from "../components/team-member.component";
       }
 
       .description {
-        display:flex;
+        display: flex;
         flex-direction: column;
         color: rgb(17, 17, 17);
         font-size: 1rem;

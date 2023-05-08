@@ -9,10 +9,10 @@ import { FooterComponent } from "./views/footer.component";
   selector: "app-root",
   standalone: true,
   template: `
-      <header>
-        <app-header></app-header>
-      </header>
-      <main id="appContainer">
+    <header>
+      <app-header></app-header>
+    </header>
+    <main id="appContainer">
       <section>
         <app-about></app-about>
       </section>
@@ -42,7 +42,7 @@ import { FooterComponent } from "./views/footer.component";
   `,
   styles: [
     `
-      :host{
+      :host {
         padding: 0 20px;
         display: flex;
         flex-direction: column;

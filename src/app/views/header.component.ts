@@ -20,7 +20,7 @@ import { Component, OnInit } from "@angular/core";
   styles: [
     `
       :host {
-        height:100vh;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;

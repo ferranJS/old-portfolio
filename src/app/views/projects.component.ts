@@ -109,7 +109,7 @@ import { Component, OnInit } from "@angular/core";
       .buttons {
         display: flex;
         justify-content: center;
-        gap:  20px;
+        gap: 20px;
       }
       .btn {
         color: #fff;

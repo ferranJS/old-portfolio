@@ -1,20 +1,964 @@
-<!DOCTYPE html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <meta charset="utf-8" />
     <title>ferran.js (not a framework!)</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
     <!-- Hojas de estilos -->
-    <style type="text/css">@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw0aXx-p7K4KLjztg.woff) format('woff');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw9aXx-p7K4KLjztg.woff) format('woff');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw2aXx-p7K4KLjztg.woff) format('woff');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXx-p7K4KLjztg.woff) format('woff');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXx-p7K4KLg.woff) format('woff');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Montserrat Alternates';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055qfQKp5L0ll4.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Montserrat Alternates';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU0576fQKp5L0ll4.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Montserrat Alternates';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055KfQKp5L0ll4.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Montserrat Alternates';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055afQKp5L0ll4.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Montserrat Alternates';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU0566fQKp5L0g.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Montserrat Subrayada';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/montserratsubrayada/v17/U9MD6c-o9H7PgjlTHThBnNHGVUORwteQQH8MaOY8q3T_.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'MuseoModerno';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEieQQisCgGdva3qwP.woff) format('woff');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'MuseoModerno';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEieUQisCgGdva3qwP.woff) format('woff');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'MuseoModerno';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEiesQisCgGdva3g.woff) format('woff');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8fH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8UH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8VH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8bH-qHHt6M.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8fH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8UH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8VH-qHHt6MDPo.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Yanone Kaffeesatz';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8bH-qHHt6M.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <style type="text/css">
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw0aXx-p7K4KLjztg.woff)
+          format("woff");
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw9aXx-p7K4KLjztg.woff)
+          format("woff");
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw2aXx-p7K4KLjztg.woff)
+          format("woff");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXx-p7K4KLjztg.woff)
+          format("woff");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXx-p7K4KLg.woff)
+          format("woff");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat Alternates";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055qfQKp5L0ll4.woff2)
+          format("woff2");
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+      }
+      @font-face {
+        font-family: "Montserrat Alternates";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU0576fQKp5L0ll4.woff2)
+          format("woff2");
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      @font-face {
+        font-family: "Montserrat Alternates";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055KfQKp5L0ll4.woff2)
+          format("woff2");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+      }
+      @font-face {
+        font-family: "Montserrat Alternates";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU055afQKp5L0ll4.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Montserrat Alternates";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v17/mFTvWacfw6zH4dthXcyms1lPpC8I_b0juU0566fQKp5L0g.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat Subrayada";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratsubrayada/v17/U9MD6c-o9H7PgjlTHThBnNHGVUORwteQQH8MaOY8q3T_.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "MuseoModerno";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEieQQisCgGdva3qwP.woff)
+          format("woff");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+      }
+      @font-face {
+        font-family: "MuseoModerno";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEieUQisCgGdva3qwP.woff)
+          format("woff");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "MuseoModerno";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEiesQisCgGdva3g.woff)
+          format("woff");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8fH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8UH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8VH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8bH-qHHt6M.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8fH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8UH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8VH-qHHt6MDPo.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Yanone Kaffeesatz";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/yanonekaffeesatz/v24/3y976aknfjLm_3lMKjiMgmUUYBs04Y8bH-qHHt6M.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
 
     <!-- Scripts  -->
-    <script src="https://kit.fontawesome.com/53422fc92c.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/background/p5.min.js" async="true"></script>
-    <script type="text/javascript" src="assets/background/background.js" async="true"></script>
-  <style>@import"https://fonts.googleapis.com/css?family=Rubik&display=swap";*{box-sizing:border-box;padding:0;margin:0}*::selection{background:rgb(229,219,234);color:#2b264c}html,body{width:100%;color:#3a4e6c;margin:0;font-family:Rubik;overflow-x:hidden}body{z-index:-5;background:linear-gradient(-45deg,yellow,#ce8142,#d53673,#926ecc,#6e83c4,#2bcba6,#c4ffde);background-size:250% 250%;animation:gradient 10s ease infinite}@keyframes gradient{0%{background-position:0% 0%}50%{background-position:100% 90%}to{background-position:0% 0%}}</style><style>@import"https://fonts.googleapis.com/css?family=Rubik&display=swap";*{box-sizing:border-box;padding:0;margin:0}*::selection{background:rgb(229,219,234);color:#2b264c}html,body{width:100%;color:#3a4e6c;margin:0;font-family:Rubik;overflow-x:hidden}body{z-index:-5;background:linear-gradient(-45deg,yellow,#ce8142,#d53673,#926ecc,#6e83c4,#2bcba6,#c4ffde);background-size:250% 250%;animation:gradient 10s ease infinite}@keyframes gradient{0%{background-position:0% 0%}50%{background-position:100% 90%}to{background-position:0% 0%}}h1,h2,h3{color:#0b2448;font-weight:700;text-align:center}h2{font-size:2.375rem;line-height:2.875rem}.h4{font-size:1rem}</style><link rel="stylesheet" href="styles.dcce018c006cec1a.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.dcce018c006cec1a.css"></noscript><style ng-app-id="ng">[_nghost-ng-c3811518682]{padding:0 20px;display:flex;flex-direction:column}html[_ngcontent-ng-c3811518682], body[_ngcontent-ng-c3811518682]{scroll-behavior:smooth!important}footer[_ngcontent-ng-c3811518682]{height:70px;display:flex;justify-content:center;align-items:center;color:#fff;bottom:0;margin-top:30px;padding:0}.link[_ngcontent-ng-c3811518682]{text-shadow:black 0px 0px 4px;text-decoration:none;color:#fff}</style><style ng-app-id="ng">[_nghost-ng-c3459712752]{height:100vh;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;color:#fff;font-family:Montserrat Alternates}.scroll-cta[_ngcontent-ng-c3459712752]{display:flex;flex-direction:column;align-items:center;position:absolute;bottom:5px}#logo[_ngcontent-ng-c3459712752]{display:flex;flex-direction:column;align-items:center;gap:30px}h1[_ngcontent-ng-c3459712752], h2[_ngcontent-ng-c3459712752]{opacity:1;margin:0;color:#fff}h1[_ngcontent-ng-c3459712752]{font-size:min(4.5rem,70vh,6rem);animation:_ngcontent-ng-c3459712752_glitch1 7s infinite}h2[_ngcontent-ng-c3459712752]{font-size:clamp(1rem,30vw,1.5rem);animation:_ngcontent-ng-c3459712752_glitch2 8s infinite}h1[_ngcontent-ng-c3459712752]:hover, h2[_ngcontent-ng-c3459712752]:hover{opacity:.5;animation-duration:2s}.changing[_ngcontent-ng-c3459712752]{display:inline;text-indent:8px}.changing[_ngcontent-ng-c3459712752]:before{content:"Computing Engineer";animation:_ngcontent-ng-c3459712752_first-word 10s infinite linear}@keyframes _ngcontent-ng-c3459712752_first-word{20%{content:"App Developer"}40%{content:"Web  Developer"}60%{content:"Software Developer"}80%{content:"Software Engineer"}to{content:"Computing Engineer"}}@keyframes _ngcontent-ng-c3459712752_glitch1{1%{text-shadow:none;color:#fff;opacity:1}8%{text-shadow:2px -4px rgb(202,149,255);color:#e2ffbe;opacity:.9}11%{text-shadow:none;color:#fff;opacity:1}27%{text-shadow:none;color:#fff;opacity:1;transform:none}30%{text-shadow:1px 5px rgb(121,152,255);color:#ffa193;transform:skew(-.9deg,-.1deg);opacity:.9}35%{text-shadow:none;color:#fff;opacity:1}52%{text-shadow:none;transform:none;color:#fff;opacity:1}55%{text-shadow:-4px -1px rgb(211,255,153);color:#ffa9e2;transform:skew(1.4deg,.5deg);opacity:.9}50%{text-shadow:none;color:#fff;opacity:1}72%{text-shadow:none;color:#fff;transform:none;opacity:1}75%{text-shadow:2px -4px rgb(140,255,245);color:#ffe49a;transform:skew(.8deg,-.1deg);opacity:.9}80%{text-shadow:none;color:#fff;opacity:1}to{text-shadow:none;color:#fff;opacity:1}}@keyframes _ngcontent-ng-c3459712752_glitch2{0%{text-shadow:none;color:#fff;opacity:1;transform:none}7%{text-shadow:4px 0px rgb(211,255,153);color:#ffa9e2;opacity:.9;transform:skew(1.5deg,-.6deg)}10%{text-shadow:none;color:#fff;opacity:1}27%{text-shadow:none;color:#fff;transform:none;opacity:1}30%{text-shadow:2px -4px rgb(121,152,255);color:#ffa193;transform:skew(-1deg,.1deg);opacity:.9}35%{text-shadow:none;color:#fff;opacity:1}52%{text-shadow:none;color:#fff;opacity:1}55%{text-shadow:-4px -1px rgb(202,149,255);color:#e2ffbe;opacity:.9}50%{text-shadow:none;color:#fff;opacity:1}72%{text-shadow:none;color:#fff;opacity:1}75%{text-shadow:0px -4px rgb(140,255,245);color:#ffe49a;opacity:.9}80%{text-shadow:none;color:#fff;opacity:1}to{text-shadow:none;color:#fff;opacity:1}}</style><style ng-app-id="ng">[_nghost-ng-c376474118]{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:50px}.about-me[_ngcontent-ng-c376474118]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}.team-members[_ngcontent-ng-c376474118]{display:flex;flex-direction:column}.description[_ngcontent-ng-c376474118]{display:flex;flex-direction:column;color:#111;font-size:1rem;text-align:center;max-width:700px;gap:10px}</style><style ng-app-id="ng">[_nghost-ng-c2634147542]{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:50px}.title[_ngcontent-ng-c2634147542]{text-align:center}.wrapper[_ngcontent-ng-c2634147542]{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px}.sample[_ngcontent-ng-c2634147542]{box-shadow:0 0 10px #9c9df45b;border-radius:20px;transition:.15s}.sample[_ngcontent-ng-c2634147542]:hover, .sample[_ngcontent-ng-c2634147542]:focus{transform:scale(1.008)}.content[_ngcontent-ng-c2634147542]{display:flex;flex-direction:column;align-items:center;gap:10px}.title[_ngcontent-ng-c2634147542]{color:#182333;text-align:start;font-size:1.5rem;line-height:1.75rem}.description[_ngcontent-ng-c2634147542]{color:#3a4e6c;text-align:start;max-width:400px}.author[_ngcontent-ng-c2634147542]{color:#182333;font-size:small;text-align:end;max-width:400px}.buttons[_ngcontent-ng-c2634147542]{display:flex;justify-content:center;gap:20px}.btn[_ngcontent-ng-c2634147542]{color:#fff;padding:10px;background:cornflowerblue;border-radius:4px;text-decoration:none;transition:.2s}.btn[_ngcontent-ng-c2634147542]:hover{opacity:85%;transition:.2s}.sample-image[_ngcontent-ng-c2634147542]{border-radius:20px;max-width:100%}@media only screen and (min-width: 768px){.wrapper[_ngcontent-ng-c2634147542]{flex-direction:row}.content[_ngcontent-ng-c2634147542]{align-items:flex-start}}</style><style ng-app-id="ng">[_nghost-ng-c1150239343]{color:#111;display:flex;align-items:center;justify-content:center;gap:20px}.team-content[_ngcontent-ng-c1150239343]{display:flex;flex-direction:column;align-items:flex-start;gap:7px}.team-portrait[_ngcontent-ng-c1150239343]{height:156px;border-radius:50%}.socials[_ngcontent-ng-c1150239343]{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:13px;font-size:1.35rem}.team-icon[_ngcontent-ng-c1150239343]{color:#0b2448}.team-icon[_ngcontent-ng-c1150239343]:hover{color:#000;scale:1.05;transition:.1s}</style></head>
+    <script
+      src="https://kit.fontawesome.com/53422fc92c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/background/p5.min.js"
+      async="true"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/background/background.js"
+      async="true"
+    ></script>
+    <style>
+      @import "https://fonts.googleapis.com/css?family=Rubik&display=swap";
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      *::selection {
+        background: rgb(229, 219, 234);
+        color: #2b264c;
+      }
+      html,
+      body {
+        width: 100%;
+        color: #3a4e6c;
+        margin: 0;
+        font-family: Rubik;
+        overflow-x: hidden;
+      }
+      body {
+        z-index: -5;
+        background: linear-gradient(
+          -45deg,
+          yellow,
+          #ce8142,
+          #d53673,
+          #926ecc,
+          #6e83c4,
+          #2bcba6,
+          #c4ffde
+        );
+        background-size: 250% 250%;
+        animation: gradient 10s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 90%;
+        }
+        to {
+          background-position: 0% 0%;
+        }
+      }
+    </style>
+    <style>
+      @import "https://fonts.googleapis.com/css?family=Rubik&display=swap";
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      *::selection {
+        background: rgb(229, 219, 234);
+        color: #2b264c;
+      }
+      html,
+      body {
+        width: 100%;
+        color: #3a4e6c;
+        margin: 0;
+        font-family: Rubik;
+        overflow-x: hidden;
+      }
+      body {
+        z-index: -5;
+        background: linear-gradient(
+          -45deg,
+          yellow,
+          #ce8142,
+          #d53673,
+          #926ecc,
+          #6e83c4,
+          #2bcba6,
+          #c4ffde
+        );
+        background-size: 250% 250%;
+        animation: gradient 10s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 90%;
+        }
+        to {
+          background-position: 0% 0%;
+        }
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0b2448;
+        font-weight: 700;
+        text-align: center;
+      }
+      h2 {
+        font-size: 2.375rem;
+        line-height: 2.875rem;
+      }
+      .h4 {
+        font-size: 1rem;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="styles.dcce018c006cec1a.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="styles.dcce018c006cec1a.css"
+    /></noscript>
+    <style ng-app-id="ng">
+      [_nghost-ng-c3811518682] {
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      html[_ngcontent-ng-c3811518682],
+      body[_ngcontent-ng-c3811518682] {
+        scroll-behavior: smooth !important;
+      }
+      footer[_ngcontent-ng-c3811518682] {
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        bottom: 0;
+        margin-top: 30px;
+        padding: 0;
+      }
+      .link[_ngcontent-ng-c3811518682] {
+        text-shadow: black 0px 0px 4px;
+        text-decoration: none;
+        color: #fff;
+      }
+    </style>
+    <style ng-app-id="ng">
+      [_nghost-ng-c3459712752] {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        color: #fff;
+        font-family: Montserrat Alternates;
+      }
+      .scroll-cta[_ngcontent-ng-c3459712752] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom: 5px;
+      }
+      #logo[_ngcontent-ng-c3459712752] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      h1[_ngcontent-ng-c3459712752],
+      h2[_ngcontent-ng-c3459712752] {
+        opacity: 1;
+        margin: 0;
+        color: #fff;
+      }
+      h1[_ngcontent-ng-c3459712752] {
+        font-size: min(4.5rem, 70vh, 6rem);
+        animation: _ngcontent-ng-c3459712752_glitch1 7s infinite;
+      }
+      h2[_ngcontent-ng-c3459712752] {
+        font-size: clamp(1rem, 30vw, 1.5rem);
+        animation: _ngcontent-ng-c3459712752_glitch2 8s infinite;
+      }
+      h1[_ngcontent-ng-c3459712752]:hover,
+      h2[_ngcontent-ng-c3459712752]:hover {
+        opacity: 0.5;
+        animation-duration: 2s;
+      }
+      .changing[_ngcontent-ng-c3459712752] {
+        display: inline;
+        text-indent: 8px;
+      }
+      .changing[_ngcontent-ng-c3459712752]:before {
+        content: "Computing Engineer";
+        animation: _ngcontent-ng-c3459712752_first-word 10s infinite linear;
+      }
+      @keyframes _ngcontent-ng-c3459712752_first-word {
+        20% {
+          content: "App Developer";
+        }
+        40% {
+          content: "Web  Developer";
+        }
+        60% {
+          content: "Software Developer";
+        }
+        80% {
+          content: "Software Engineer";
+        }
+        to {
+          content: "Computing Engineer";
+        }
+      }
+      @keyframes _ngcontent-ng-c3459712752_glitch1 {
+        1% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        8% {
+          text-shadow: 2px -4px rgb(202, 149, 255);
+          color: #e2ffbe;
+          opacity: 0.9;
+        }
+        11% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        27% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+          transform: none;
+        }
+        30% {
+          text-shadow: 1px 5px rgb(121, 152, 255);
+          color: #ffa193;
+          transform: skew(-0.9deg, -0.1deg);
+          opacity: 0.9;
+        }
+        35% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        52% {
+          text-shadow: none;
+          transform: none;
+          color: #fff;
+          opacity: 1;
+        }
+        55% {
+          text-shadow: -4px -1px rgb(211, 255, 153);
+          color: #ffa9e2;
+          transform: skew(1.4deg, 0.5deg);
+          opacity: 0.9;
+        }
+        50% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        72% {
+          text-shadow: none;
+          color: #fff;
+          transform: none;
+          opacity: 1;
+        }
+        75% {
+          text-shadow: 2px -4px rgb(140, 255, 245);
+          color: #ffe49a;
+          transform: skew(0.8deg, -0.1deg);
+          opacity: 0.9;
+        }
+        80% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        to {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+      }
+      @keyframes _ngcontent-ng-c3459712752_glitch2 {
+        0% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+          transform: none;
+        }
+        7% {
+          text-shadow: 4px 0px rgb(211, 255, 153);
+          color: #ffa9e2;
+          opacity: 0.9;
+          transform: skew(1.5deg, -0.6deg);
+        }
+        10% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        27% {
+          text-shadow: none;
+          color: #fff;
+          transform: none;
+          opacity: 1;
+        }
+        30% {
+          text-shadow: 2px -4px rgb(121, 152, 255);
+          color: #ffa193;
+          transform: skew(-1deg, 0.1deg);
+          opacity: 0.9;
+        }
+        35% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        52% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        55% {
+          text-shadow: -4px -1px rgb(202, 149, 255);
+          color: #e2ffbe;
+          opacity: 0.9;
+        }
+        50% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        72% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        75% {
+          text-shadow: 0px -4px rgb(140, 255, 245);
+          color: #ffe49a;
+          opacity: 0.9;
+        }
+        80% {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+        to {
+          text-shadow: none;
+          color: #fff;
+          opacity: 1;
+        }
+      }
+    </style>
+    <style ng-app-id="ng">
+      [_nghost-ng-c376474118] {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+      }
+      .about-me[_ngcontent-ng-c376474118] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .team-members[_ngcontent-ng-c376474118] {
+        display: flex;
+        flex-direction: column;
+      }
+      .description[_ngcontent-ng-c376474118] {
+        display: flex;
+        flex-direction: column;
+        color: #111;
+        font-size: 1rem;
+        text-align: center;
+        max-width: 700px;
+        gap: 10px;
+      }
+    </style>
+    <style ng-app-id="ng">
+      [_nghost-ng-c2634147542] {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
+      .title[_ngcontent-ng-c2634147542] {
+        text-align: center;
+      }
+      .wrapper[_ngcontent-ng-c2634147542] {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+      .sample[_ngcontent-ng-c2634147542] {
+        box-shadow: 0 0 10px #9c9df45b;
+        border-radius: 20px;
+        transition: 0.15s;
+      }
+      .sample[_ngcontent-ng-c2634147542]:hover,
+      .sample[_ngcontent-ng-c2634147542]:focus {
+        transform: scale(1.008);
+      }
+      .content[_ngcontent-ng-c2634147542] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .title[_ngcontent-ng-c2634147542] {
+        color: #182333;
+        text-align: start;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+      }
+      .description[_ngcontent-ng-c2634147542] {
+        color: #3a4e6c;
+        text-align: start;
+        max-width: 400px;
+      }
+      .author[_ngcontent-ng-c2634147542] {
+        color: #182333;
+        font-size: small;
+        text-align: end;
+        max-width: 400px;
+      }
+      .buttons[_ngcontent-ng-c2634147542] {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .btn[_ngcontent-ng-c2634147542] {
+        color: #fff;
+        padding: 10px;
+        background: cornflowerblue;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .btn[_ngcontent-ng-c2634147542]:hover {
+        opacity: 85%;
+        transition: 0.2s;
+      }
+      .sample-image[_ngcontent-ng-c2634147542] {
+        border-radius: 20px;
+        max-width: 100%;
+      }
+      @media only screen and (min-width: 768px) {
+        .wrapper[_ngcontent-ng-c2634147542] {
+          flex-direction: row;
+        }
+        .content[_ngcontent-ng-c2634147542] {
+          align-items: flex-start;
+        }
+      }
+    </style>
+    <style ng-app-id="ng">
+      [_nghost-ng-c1150239343] {
+        color: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      .team-content[_ngcontent-ng-c1150239343] {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+      }
+      .team-portrait[_ngcontent-ng-c1150239343] {
+        height: 156px;
+        border-radius: 50%;
+      }
+      .socials[_ngcontent-ng-c1150239343] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        font-size: 1.35rem;
+      }
+      .team-icon[_ngcontent-ng-c1150239343] {
+        color: #0b2448;
+      }
+      .team-icon[_ngcontent-ng-c1150239343]:hover {
+        color: #000;
+        scale: 1.05;
+        transition: 0.1s;
+      }
+    </style>
+  </head>
   <body>
-    <app-root _nghost-ng-c3811518682="" ng-version="16.0.0" ng-server-context="ssg"><header _ngcontent-ng-c3811518682=""><app-header _ngcontent-ng-c3811518682="" _nghost-ng-c3459712752=""><div _ngcontent-ng-c3459712752="" id="logo"><h1 _ngcontent-ng-c3459712752=""><span _ngcontent-ng-c3459712752="" style="font-size: 1.15em;">F</span>erran Ramírez</h1><h2 _ngcontent-ng-c3459712752="" class="changing"></h2></div><div _ngcontent-ng-c3459712752="" class="scroll-cta"><div _ngcontent-ng-c3459712752="">Scroll down</div><img _ngcontent-ng-c3459712752="" src="../../assets/icons/scroll-arrow.gif" alt="scroll down" style="width: 30px;"></div></app-header></header><main _ngcontent-ng-c3811518682="" id="appContainer"><section _ngcontent-ng-c3811518682=""><app-about _ngcontent-ng-c3811518682="" _nghost-ng-c376474118=""><div _ngcontent-ng-c376474118="" class="about-me"><h2 _ngcontent-ng-c376474118="">About me</h2><div _ngcontent-ng-c376474118="" class="description"><p _ngcontent-ng-c376474118=""> Engineer with 2 years of experience as a Full Stack developer. </p><p _ngcontent-ng-c376474118=""> I have experience in Angular, RxJS, Firebase, Ionic, Capacitor and agile CSS withTailwind ✅ </p><p _ngcontent-ng-c376474118=""> Applying the best practices and up to date with other technologies that make up Full Stack development, how they correlate with each other and their importance and power in the industry 🔎 </p><p _ngcontent-ng-c376474118=""> Very interested in React, NextJS 13, tRPC, Redux, etc. ❤️ </p></div></div><div _ngcontent-ng-c376474118="" class="team-members"><app-team-member _ngcontent-ng-c376474118="" _nghost-ng-c1150239343=""><a _ngcontent-ng-c1150239343="" href="https://www.linkedin.com/in/ferran-ramirez/" target="_blank"><picture _ngcontent-ng-c1150239343=""><source _ngcontent-ng-c1150239343="" srcset="/assets/images/ferran.webp" type="image/webp"><img _ngcontent-ng-c1150239343="" loading="lazy" src="/assets/images/ferran.jpg" class="team-portrait" style="box-shadow: 0px 0px 10px -3px #b5afa7;"></picture></a><div _ngcontent-ng-c1150239343="" class="team-content"><p _ngcontent-ng-c1150239343=""><strong _ngcontent-ng-c1150239343="" class="h4">Ferran Ramírez Martí</strong></p><div _ngcontent-ng-c1150239343=""> Web &amp; App Developer  </div><p _ngcontent-ng-c1150239343=""> Computing Engineer graduated in Computer Science </p><div _ngcontent-ng-c1150239343="" class="socials"><a _ngcontent-ng-c1150239343="" target="_blank" class="team-social" href="https://www.linkedin.com/in/ferran-ramirez/"><i _ngcontent-ng-c1150239343="" style="text-shadow: 0px 0px 2px 0px #22243b;" class="fa fa-linkedin fab team-icon"></i></a><a _ngcontent-ng-c1150239343="" target="_blank" class="team-social" href="https://github.com/ferranJS"><i _ngcontent-ng-c1150239343="" style="text-shadow: 0px 0px 2px 0px #22243b;" class="fa fa-github fab team-icon"></i></a><!----></div></div></app-team-member><!----></div></app-about></section><section _ngcontent-ng-c3811518682=""><app-projects _ngcontent-ng-c3811518682="" _nghost-ng-c2634147542=""><div _ngcontent-ng-c2634147542="" class="header"><h2 _ngcontent-ng-c2634147542="" class="h2">My projects</h2></div><div _ngcontent-ng-c2634147542="" class="wrapper"><div _ngcontent-ng-c2634147542="" class="content"><h3 _ngcontent-ng-c2634147542="" class="title">Cellular Stuff</h3><p _ngcontent-ng-c2634147542="" class="description">Visual, interactive and educational representation and explanation of a One-dimensional Cellular Automaton.</p><div _ngcontent-ng-c2634147542="" class="buttons"><a _ngcontent-ng-c2634147542="" target="_blank" class="btn" style="box-shadow: 0px 0px 7px -3px cornflowerblue;" href="https://cellular-stuff.netlify.app">See project</a><a _ngcontent-ng-c2634147542="" target="_blank" class="btn" style="background-color: rgb(108, 111, 146); box-shadow: 0px 0px 7px -3px rgb(108, 111, 146);" href="https://gitlab.com/ferranJS/cellular-automaton-web">Go to source</a><!----></div></div><a _ngcontent-ng-c2634147542="" target="_blank" class="sample" href="https://cellular-stuff.netlify.app"><picture _ngcontent-ng-c2634147542=""><source _ngcontent-ng-c2634147542="" type="image/webp" srcset="../../../assets/images/cellular-stuff-preview.webp"><img _ngcontent-ng-c2634147542="" loading="lazy" class="sample-image" src="../../../assets/images/cellular-stuff-preview.jpg"></picture></a></div></app-projects></section></main><footer _ngcontent-ng-c3811518682=""><a _ngcontent-ng-c3811518682="" href="https://github.com/ferranJS/old-portfolio" target="_blank" class="link"><i _ngcontent-ng-c3811518682="" aria-hidden="true" class="fa fa-github fab" style="font-size: 1.2rem;"></i> &nbsp; Made with <p _ngcontent-ng-c3811518682="" class="fa-spin" style="display: inline-block;">💖</p> and <p _ngcontent-ng-c3811518682="" class="fa-spin" style="display: inline-block;">☕</p></a></footer></app-root>
-  <script src="runtime.4780622838e52590.js" type="module"></script><script src="polyfills.8629f13653a7f494.js" type="module"></script><script src="main.4994108a9b4e2c09.js" type="module"></script>
-
-</body></html>
+    <app-root
+      _nghost-ng-c3811518682=""
+      ng-version="16.0.0"
+      ng-server-context="ssg"
+      ><header _ngcontent-ng-c3811518682="">
+        <app-header _ngcontent-ng-c3811518682="" _nghost-ng-c3459712752=""
+          ><div _ngcontent-ng-c3459712752="" id="logo">
+            <h1 _ngcontent-ng-c3459712752="">
+              <span _ngcontent-ng-c3459712752="" style="font-size: 1.15em"
+                >F</span
+              >erran Ramírez
+            </h1>
+            <h2 _ngcontent-ng-c3459712752="" class="changing"></h2>
+          </div>
+          <div _ngcontent-ng-c3459712752="" class="scroll-cta">
+            <div _ngcontent-ng-c3459712752="">Scroll down</div>
+            <img
+              _ngcontent-ng-c3459712752=""
+              src="../../assets/icons/scroll-arrow.gif"
+              alt="scroll down"
+              style="width: 30px"
+            /></div
+        ></app-header>
+      </header>
+      <main _ngcontent-ng-c3811518682="" id="appContainer">
+        <section _ngcontent-ng-c3811518682="">
+          <app-about _ngcontent-ng-c3811518682="" _nghost-ng-c376474118=""
+            ><div _ngcontent-ng-c376474118="" class="about-me">
+              <h2 _ngcontent-ng-c376474118="">About me</h2>
+              <div _ngcontent-ng-c376474118="" class="description">
+                <p _ngcontent-ng-c376474118="">
+                  Engineer with 2 years of experience as a Full Stack developer.
+                </p>
+                <p _ngcontent-ng-c376474118="">
+                  I have experience in Angular, RxJS, Firebase, Ionic, Capacitor
+                  and agile CSS withTailwind ✅
+                </p>
+                <p _ngcontent-ng-c376474118="">
+                  Applying the best practices and up to date with other
+                  technologies that make up Full Stack development, how they
+                  correlate with each other and their importance and power in
+                  the industry 🔎
+                </p>
+                <p _ngcontent-ng-c376474118="">
+                  Very interested in React, NextJS 13, tRPC, Redux, etc. ❤️
+                </p>
+              </div>
+            </div>
+            <div _ngcontent-ng-c376474118="" class="team-members">
+              <app-team-member
+                _ngcontent-ng-c376474118=""
+                _nghost-ng-c1150239343=""
+                ><a
+                  _ngcontent-ng-c1150239343=""
+                  href="https://www.linkedin.com/in/ferran-ramirez/"
+                  target="_blank"
+                  ><picture _ngcontent-ng-c1150239343=""
+                    ><source
+                      _ngcontent-ng-c1150239343=""
+                      srcset="/assets/images/ferran.webp"
+                      type="image/webp" />
+                    <img
+                      _ngcontent-ng-c1150239343=""
+                      loading="lazy"
+                      src="/assets/images/ferran.jpg"
+                      class="team-portrait"
+                      style="box-shadow: 0px 0px 10px -3px #b5afa7" /></picture
+                ></a>
+                <div _ngcontent-ng-c1150239343="" class="team-content">
+                  <p _ngcontent-ng-c1150239343="">
+                    <strong _ngcontent-ng-c1150239343="" class="h4"
+                      >Ferran Ramírez Martí</strong
+                    >
+                  </p>
+                  <div _ngcontent-ng-c1150239343="">
+                    Web &amp; App Developer
+                  </div>
+                  <p _ngcontent-ng-c1150239343="">
+                    Computing Engineer graduated in Computer Science
+                  </p>
+                  <div _ngcontent-ng-c1150239343="" class="socials">
+                    <a
+                      _ngcontent-ng-c1150239343=""
+                      target="_blank"
+                      class="team-social"
+                      href="https://www.linkedin.com/in/ferran-ramirez/"
+                      ><i
+                        _ngcontent-ng-c1150239343=""
+                        style="text-shadow: 0px 0px 2px 0px #22243b"
+                        class="fa fa-linkedin fab team-icon"
+                      ></i></a
+                    ><a
+                      _ngcontent-ng-c1150239343=""
+                      target="_blank"
+                      class="team-social"
+                      href="https://github.com/ferranJS"
+                      ><i
+                        _ngcontent-ng-c1150239343=""
+                        style="text-shadow: 0px 0px 2px 0px #22243b"
+                        class="fa fa-github fab team-icon"
+                      ></i></a
+                    ><!---->
+                  </div>
+                </div></app-team-member
+              ><!---->
+            </div></app-about
+          >
+        </section>
+        <section _ngcontent-ng-c3811518682="">
+          <app-projects _ngcontent-ng-c3811518682="" _nghost-ng-c2634147542=""
+            ><div _ngcontent-ng-c2634147542="" class="header">
+              <h2 _ngcontent-ng-c2634147542="" class="h2">My projects</h2>
+            </div>
+            <div _ngcontent-ng-c2634147542="" class="wrapper">
+              <div _ngcontent-ng-c2634147542="" class="content">
+                <h3 _ngcontent-ng-c2634147542="" class="title">
+                  Cellular Stuff
+                </h3>
+                <p _ngcontent-ng-c2634147542="" class="description">
+                  Visual, interactive and educational representation and
+                  explanation of a One-dimensional Cellular Automaton.
+                </p>
+                <div _ngcontent-ng-c2634147542="" class="buttons">
+                  <a
+                    _ngcontent-ng-c2634147542=""
+                    target="_blank"
+                    class="btn"
+                    style="box-shadow: 0px 0px 7px -3px cornflowerblue"
+                    href="https://cellular-stuff.netlify.app"
+                    >See project</a
+                  ><a
+                    _ngcontent-ng-c2634147542=""
+                    target="_blank"
+                    class="btn"
+                    style="
+                      background-color: rgb(108, 111, 146);
+                      box-shadow: 0px 0px 7px -3px rgb(108, 111, 146);
+                    "
+                    href="https://gitlab.com/ferranJS/cellular-automaton-web"
+                    >Go to source</a
+                  ><!---->
+                </div>
+              </div>
+              <a
+                _ngcontent-ng-c2634147542=""
+                target="_blank"
+                class="sample"
+                href="https://cellular-stuff.netlify.app"
+                ><picture _ngcontent-ng-c2634147542=""
+                  ><source
+                    _ngcontent-ng-c2634147542=""
+                    type="image/webp"
+                    srcset="
+                      ../../../assets/images/cellular-stuff-preview.webp
+                    " />
+                  <img
+                    _ngcontent-ng-c2634147542=""
+                    loading="lazy"
+                    class="sample-image"
+                    src="../../../assets/images/cellular-stuff-preview.jpg" /></picture
+              ></a></div
+          ></app-projects>
+        </section>
+      </main>
+      <footer _ngcontent-ng-c3811518682="">
+        <a
+          _ngcontent-ng-c3811518682=""
+          href="https://github.com/ferranJS/old-portfolio"
+          target="_blank"
+          class="link"
+          ><i
+            _ngcontent-ng-c3811518682=""
+            aria-hidden="true"
+            class="fa fa-github fab"
+            style="font-size: 1.2rem"
+          ></i>
+          &nbsp; Made with
+          <p
+            _ngcontent-ng-c3811518682=""
+            class="fa-spin"
+            style="display: inline-block"
+          >
+            💖
+          </p>
+          and
+          <p
+            _ngcontent-ng-c3811518682=""
+            class="fa-spin"
+            style="display: inline-block"
+          >
+            ☕
+          </p></a
+        >
+      </footer></app-root
+    >
+    <script src="runtime.4780622838e52590.js" type="module"></script>
+    <script src="polyfills.8629f13653a7f494.js" type="module"></script>
+    <script src="main.4994108a9b4e2c09.js" type="module"></script>
+  </body>
+</html>
