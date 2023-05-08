@@ -35,26 +35,35 @@ function setup() {
     speed = 0.5;
   }
   
-  canvas = createCanvas(ancho, alto * 3.06);
+  canvas = createCanvas(ancho, alto * 3.07);
   canvas.parent("appContainer");
   canvas.position(0, 0);
   canvas.style('z-index', '-1');
 
   if(windowHeight < ancho) {
-  //pc
-    while(balls.length < MAX_BALLS) {
+  // desktop
+    while(balls.length <= MAX_BALLS) {
       var randX = Math.random() * (ancho + 10) - 10;
       var randY = Math.random() * (windowHeight * 3 + 10) - 10;
 
-      // Alrededor del logo
-      if(randY <= windowHeight * 0.37) {
+      // before the logo
+      if(randY <= windowHeight * 0.35) {
         balls.push(new Ball(randX, randY));
       }
-      else if(randY >= windowHeight * 0.65 && randY <= windowHeight * 0.9) {
+      // header-scroll
+      else if(randY >= windowHeight * 0.7 && randY <= windowHeight * 0.88) {
         balls.push(new Ball(randX, randY));
       }
-      //inbetween
-      else if(randY >= windowHeight * 1.8 && randY <= windowHeight * 2.35) {
+      // header-about
+      else if(randY >= windowHeight * 1.03 && randY <= windowHeight * 1.22) {
+        balls.push(new Ball(randX, randY));
+      }
+      //about-projects
+      else if(randY >= windowHeight * 1.79 && randY <= windowHeight * 2.22) {
+        balls.push(new Ball(randX, randY));
+      }
+      //after projects
+      else if(randY >= windowHeight * 2.65 && randY <= windowHeight * 3.4) {
         balls.push(new Ball(randX, randY));
       }
       // Los lados
@@ -65,20 +74,41 @@ function setup() {
         balls.push(new Ball(randX, randY));
       }
     }  
-  }else {
+  } else {
   //móvil
-    while(balls.length < MAX_BALLS) {
+    while(balls.length <= MAX_BALLS) {
       var randX = Math.random() * (ancho + 10) - 10;
       var randY = Math.random() * (windowHeight * 3 + 10) - 10;
-      if(randY <= windowHeight * 0.37) {
+      // before the logo
+      if(randY <= windowHeight * 0.33) {
         balls.push(new Ball(randX, randY));
       }
-      else if(randY >= windowHeight * 0.65) {
+      // header-scroll
+      else if(randY >= windowHeight * 0.7 && randY <= windowHeight * 0.92) {
         balls.push(new Ball(randX, randY));
       }
+      // header-about
+      else if(randY >= windowHeight * 1.03 && randY <= windowHeight * 1.21) {
+        balls.push(new Ball(randX, randY));
+      }
+      //about-projects
+      else if(randY >= windowHeight * 1.79 && randY <= windowHeight * 2.21) {
+        balls.push(new Ball(randX, randY));
+      }
+      //after projects
+      else if(randY >= windowHeight * 2.65 && randY <= windowHeight * 3.4) {
+        balls.push(new Ball(randX, randY));
+      }
+      // Los lados
+      else if(randX <= ancho * 0.1) {
+        balls.push(new Ball(randX, randY));
+      }
+      else if(randX >= ancho * 0.9) {
+        balls.push(new Ball(randX, randY));
+      } 
     }
   }
-  //color y alphaarencia de todo
+  // general color and width
   alpha = 150;
   lineWidth = 0.4;
   if(windowHeight > windowWidth) {
