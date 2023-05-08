@@ -1,9 +1,0 @@
-html,
-body {
-  scroll-behavior: smooth !important;
-}
-
-.section {
-  height: 100vh;
-  width: 100%;
-}
