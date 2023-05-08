@@ -8,7 +8,7 @@ The objective is to improve its performance and make it look a bit better.
 
 Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
 
-**Time improvements so far**
+**Time & Size improvements so far**
 
   - With *Disabled Cache*: **3s~6s ➡ < 1.7s**
 
@@ -16,10 +16,9 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
     - *First Contentful Paint*: **>7s ➡ ~1.8s**
     - *Largest Contentful Paint*: **>10s ➡ ~3s**
     - *Background Downlaod & Execution*: **>20s ➡ ~5s**
+  - Packed Bundle Size: 
 
-## ✔️ Done
-  
-  Changes made:
+## ✔️ Changes made
 
   - Lazy Load `p5.min.js`, `background.js` & images for **performance**
   - **Seo** & performance improvement with *Angular Universal* prerendering
