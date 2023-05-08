@@ -44,11 +44,14 @@
       [attr.href]="projectSelected.urlProject"
       target="_blank"
     >
-      <img
-        class="project-sample-image"
-        [src]="projectSelected.image"
-        loading="lazy"
-      />
+      <picture>
+        <source [srcset]="projectSelected.image" type="image/webp" />
+        <img
+          class="project-sample-image"
+          [src]="projectSelected.image2"
+          loading="lazy"
+        />
+      </picture>
     </a>
   </div>
 </section>

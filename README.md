@@ -24,6 +24,7 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
   - Lazy Load `p5.min.js`, `background.js` & images for **performance**
   - **Seo** & performance improvement with *Angular Universal* prerendering
   - Standalone components
+  - Images: resized & compressed in WebP
 
 ## ❕ To improve 
 

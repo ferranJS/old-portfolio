@@ -5,6 +5,7 @@ export class Project {
     urlProject?: String;
     urlSource?: String;
     image?: String;
+    image2?: String;
     author?: String;
     
     constructor(name: string | String, description: String | undefined, urlProject: String | undefined, urlSource: String | undefined, image: String | undefined, author: String | undefined, icon: String) {
