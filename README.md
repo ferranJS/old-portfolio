@@ -13,9 +13,9 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
   - With *Disabled Cache*: **3s~6s ➡ < 1.7s**
 
   - With *Disabled Cache* & *Fast 3G* config:
-    - *First Contentful Paint*: **>7s ➡ ~2s**
-    - *Largest Contentful Paint*: **>10s ➡ ~3s**
-    - *Background Downlaod & Execution*: **>20s ➡ ~5s**
+    - *First Contentful Paint*: **>7s ➡ ~1.8s**
+    - *Largest Contentful Paint*: **>10s ➡ ~2.5s**
+    - *Background Downlaod & Execution*: **>20s ➡ ~3s**
   - Packed Bundle Size: **62MB ➡ 6MB**
 
 ## ✔️ Changes made
