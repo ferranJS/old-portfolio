@@ -127,7 +127,9 @@ import { Component, OnInit } from "@angular/core";
       }
       .sample-image {
         border-radius: 20px;
-        width: 100%;
+        aspect-ratio: auto;
+        width: 400px;
+        max-width: 90vw;
       }
 
       @media only screen and (min-width: 768px) {
