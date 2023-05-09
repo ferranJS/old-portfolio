@@ -1,6 +1,6 @@
 let speed = 0.4;
 
-let MAX_BALLS = 180; //default
+let MAX_BALLS = 200; //default
 let STRING_MAX = 160;
 let STRING_MIN = 50;
 let balls = [];
@@ -29,7 +29,7 @@ function setup() {
   MAX_BALLS = (windowHeight + ancho) / 13; //is the real number of balls
   console.log(MAX_BALLS);
   if (windowHeight > ancho) {
-    MAX_BALLS = MAX_BALLS;
+    MAX_BALLS = 111;
     STRING_MIN = 15;
     speed = 0.5;
   }
@@ -73,7 +73,7 @@ function setup() {
       }
     }
   } else {
-    //móvil
+    // mobile
     while (balls.length <= MAX_BALLS) {
       var randX = Math.random() * (ancho + 10) - 10;
       var randY = Math.random() * (windowHeight * 3 + 10) - 10;
