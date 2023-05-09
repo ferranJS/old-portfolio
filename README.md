@@ -25,6 +25,7 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
   - Standalone components
   - Images: resized & compressed in WebP
   - Downloaded fonts
+  - Prerender with Github Actions
 
 ## ❕ To improve 
 
