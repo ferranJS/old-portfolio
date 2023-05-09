@@ -13,17 +13,18 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
   - With *Disabled Cache*: **3s~6s ➡ < 1.7s**
 
   - With *Disabled Cache* & *Fast 3G* config:
-    - *First Contentful Paint*: **>7s ➡ ~1.8s**
+    - *First Contentful Paint*: **>7s ➡ ~2s**
     - *Largest Contentful Paint*: **>10s ➡ ~3s**
     - *Background Downlaod & Execution*: **>20s ➡ ~5s**
   - Packed Bundle Size: **62MB ➡ 6MB**
 
 ## ✔️ Changes made
 
-  - Lazy Load `p5.min.js`, `background.js` & images for **performance**
+  - Lazy Load (defer) `p5.min.js`, `background.js` & images for **performance**
   - **Seo** & performance improvement with *Angular Universal* prerendering
   - Standalone components
   - Images: resized & compressed in WebP
+  - Downloaded fonts
 
 ## ❕ To improve 
 

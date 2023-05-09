@@ -24,6 +24,7 @@ import { FooterComponent } from "./views/footer.component";
       <a
         class="link"
         href="https://github.com/ferranJS/old-portfolio"
+        aria-label="Link to the source code of this website"
         target="_blank"
       >
         <i

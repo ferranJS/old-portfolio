@@ -7,14 +7,16 @@ import { TeamMember } from "src/app/models/team-member.model";
   selector: "app-team-member",
   standalone: true,
   template: `
-    <a href="https://www.linkedin.com/in/ferran-ramirez/" target="_blank">
+    <a href="https://www.linkedin.com/in/ferran-ramirez/" target="_blank"
+    aria-label="Ferran Ramirez LinkedIn profile"
+    >
       <picture>
         <source srcset="/assets/images/ferran.webp" type="image/webp" />
         <img
           class="team-portrait"
-          style="box-shadow: 0px 0px 10px -3px #b5afa7"
           loading="lazy"
           src="/assets/images/ferran.jpg"
+          alt="Ferran Ramírez Martí, ferranJS"
         />
       </picture>
     </a>
@@ -34,6 +36,7 @@ import { TeamMember } from "src/app/models/team-member.model";
           class="team-social"
           target="_blank"
           [attr.href]="social.href"
+          aria-label="social link"
         >
           <i
             [class]="social.class + ' team-icon'"
@@ -60,7 +63,9 @@ import { TeamMember } from "src/app/models/team-member.model";
         gap: 7px;
       }
       .team-portrait {
+        box-shadow: 0px 0px 10px -3px #b5afa7;
         height: 156px;
+        aspect-ratio: 1/1;
         border-radius: 50%;
       }
       .socials {

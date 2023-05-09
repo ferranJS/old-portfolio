@@ -11,8 +11,8 @@ import { Component, OnInit } from "@angular/core";
     <div class="scroll-cta">
       <div>Scroll down</div>
       <img
+        class="scroll-arrow"
         src="../../assets/icons/scroll-arrow.gif"
-        style="width: 30px"
         alt="scroll down"
       />
     </div>
@@ -35,6 +35,10 @@ import { Component, OnInit } from "@angular/core";
         align-items: center;
         position: absolute;
         bottom: 5px;
+      }
+      .scroll-arrow {
+        width: 40px;
+        aspect-ratio: 1/1;
       }
       /* Logo Glitch! */
       #logo {

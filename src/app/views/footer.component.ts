@@ -9,6 +9,7 @@ import { Component, OnInit } from "@angular/core";
         class="link"
         href="https://github.com/ferranJS/old-portfolio"
         target="_blank"
+        aria-label="Link to the source code of this website"
       >
         <i
           class="fa fa-github fab"

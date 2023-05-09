@@ -20,10 +20,12 @@ import { Component, OnInit } from "@angular/core";
             style="box-shadow: 0px 0px 7px -3px cornflowerblue"
             [attr.href]="projectSelected.urlProject"
             target="_blank"
+            aria-label="Go to Cellular Stuff project webpage"
             >See project</a
           >
           <a
             *ngIf="projectSelected.urlSource"
+            aria-label="Go to github source code of Cellular Stuff"
             class="btn"
             style="
             background-color: rgb(108, 111, 146);
@@ -38,6 +40,7 @@ import { Component, OnInit } from "@angular/core";
       </div>
       <a
         class="sample"
+        aria-label="Go to Cellular Stuff project webpage"
         [attr.href]="projectSelected.urlProject"
         target="_blank"
       >
@@ -47,6 +50,7 @@ import { Component, OnInit } from "@angular/core";
             class="sample-image"
             [src]="projectSelected.image2"
             loading="lazy"
+            alt="cellular automata"
           />
         </picture>
       </a>
@@ -112,7 +116,7 @@ import { Component, OnInit } from "@angular/core";
       .btn {
         color: #fff;
         padding: 10px;
-        background: cornflowerblue;
+        background: #4c7cd0;
         border-radius: 4px;
         text-decoration: none;
         transition: 0.2s;
@@ -123,7 +127,7 @@ import { Component, OnInit } from "@angular/core";
       }
       .sample-image {
         border-radius: 20px;
-        max-width: 100%;
+        width: 100%;
       }
 
       @media only screen and (min-width: 768px) {
