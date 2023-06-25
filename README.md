@@ -6,8 +6,6 @@ This is an old portofolio I built in 2019 with a friend in order to learn a bit 
 
 The objective is to improve its performance and make it look a bit better.
 
-Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
-
 **Time & Size improvements so far**
 
   - With *Disabled Cache*: **3s~6s ➡ < 1.7s**
@@ -20,7 +18,7 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
 
 ## ✔️ Changes made
 
-  - Continuous Integration with [Jekyll-build](https://github.com/ferranJS/old-portfolio/blob/main/.github/workflows/jekyll-gh-pages.yml) and deploy-pages Github Actions 
+  - Continuous Integration with [Jekyll-build](https://github.com/ferranJS/old-portfolio/blob/main/.github/workflows/jekyll-gh-pages.yml) and deploy-pages Github Actions at [**`ferran.tech`**](https://ferran.tech).
   - Lazy Load (defer) `p5.min.js`, `background.js` & images for **performance**
   - **Seo** & performance improvement with *Angular Universal* prerendering
   - Images: resized & compressed in **WebP**
