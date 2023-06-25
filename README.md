@@ -18,6 +18,8 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
     - *Background Downlaod & Execution*: **>20s ➡ ~3s**
   - Packed Bundle Size: **62MB ➡ 6MB**
 
+[PageSpeed Insights](https://pagespeed.web.dev/analysis/https-ferran-tech/r0f1gljzlm?form_factor=desktop)
+
 ## ✔️ Changes made
 
   - Continuous Integration with [Jekyll-build](https://github.com/ferranJS/old-portfolio/blob/main/.github/workflows/jekyll-gh-pages.yml) and deploy-pages Github Actions 
