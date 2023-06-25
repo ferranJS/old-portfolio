@@ -1,4 +1,4 @@
-name: Prerender
+name: Deploy to GitHub Pages
 
 on:
   push:
