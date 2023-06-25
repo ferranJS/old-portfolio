@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   standalone: true,
   template: `
     <div id="logo">
-      <h1><span style="font-size: 1.15em">F</span>erran Ramírez</h1>
+      <h1><span style="font-size: 1.15em">F</span>erran Ramírez!</h1>
       <h2 class="changing"></h2>
     </div>
     <div class="scroll-cta">
