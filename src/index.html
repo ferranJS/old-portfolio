@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- head tags order -->
+    <!-- 1. <meta charset|http-equiv|viewport /> -->
     <meta charset="utf-8" />
-    <title>ferran.js (not a framework)</title>
-    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 2. <title> -->
+    <title>ferran.js</title>
+    <base href="/" />
+    <!-- 3. preconnect -->
+    <!-- 4. <script src="" async></script> -->
+    <!-- 5. CSS that includes @import -->
+    <!-- 6. Synchronous JS -->
+
+    <script src="https://kit.fontawesome.com/53422fc92c.js" crossorigin="anonymous"></script>
+
+    <!-- 7. Synchronous CSS -->
+    <link
+      rel="preload"
+      href="rubik-v26-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="montserrat-alternates-v17-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <!-- 8. preload -->
+    <!-- 9. <script src="" defer></script> -->
+    <script type="text/javascript" src="assets/background/p5.min.js" defer="true"></script>
+    <script type="text/javascript" src="assets/background/background.js" defer="true"></script>
+    <!-- 10. prefetch / prerender -->
+    <!-- 11. Everything else (‘SEO’ meta tags, icons, Open Graph, etc -->
     <meta
       name="description"
       content="Ferran is a Full Stack Web Developer with 2 years of experience who graduated in Computer Science at UPV capable of creating Web and Native Mobile Apps with technologies like Angular, React, Nextjs, React Native, Ionic, Capacitor, Firebase, Vercel, SQL, Tailwind, etc. He has a deep understanding of the industry and the technologies that make Web Development as important as it is today."
     />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
-    <!-- Scripts  -->
-    <script
-      src="https://kit.fontawesome.com/53422fc92c.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/background/p5.min.js"
-      defer="true"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/background/background.js"
-      defer="true"
-    ></script>
   </head>
   <body>
     <app-root></app-root>

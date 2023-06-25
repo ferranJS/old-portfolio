@@ -4,39 +4,15 @@
   font-family: "Montserrat Alternates";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.eot"); /* IE9 Compat Modes */
-  src: url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */
-      url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.woff")
-      format("woff"),
-    /* Modern Browsers */
-      url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */
-      url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.svg#MontserratAlternates")
-      format("svg"); /* Legacy iOS */
+  src: /* IE6-IE8 */ url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.woff2")
+    format("woff2");
 }
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/Rubik/rubik-v26-latin-regular.eot"); /* IE9 Compat Modes */
-  src: url("./assets/fonts/Rubik/rubik-v26-latin-regular.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/Rubik/rubik-v26-latin-regular.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("./assets/fonts/Rubik/rubik-v26-latin-regular.woff") format("woff"),
-    /* Modern Browsers */
-      url("./assets/fonts/Rubik/rubik-v26-latin-regular.ttf") format("truetype"),
-    /* Safari, Android, iOS */
-      url("./assets/fonts/Rubik/rubik-v26-latin-regular.svg#Rubik")
-      format("svg"); /* Legacy iOS */
+  src: /* IE6-IE8 */ url("./assets/fonts/Rubik/rubik-v26-latin-regular.woff2") format("woff2");
 }
 * {
   box-sizing: border-box;
@@ -59,16 +35,7 @@ body {
 }
 body {
   z-index: -5;
-  background: linear-gradient(
-    -45deg,
-    yellow,
-    #ce8142,
-    #d53673,
-    #926ecc,
-    #6e83c4,
-    #2bcba6,
-    #c4ffde
-  );
+  background: linear-gradient(-45deg, yellow, #ce8142, #d53673, #926ecc, #6e83c4, #2bcba6, #c4ffde);
   background-size: 250% 250%;
   animation: gradient 10s ease infinite;
 }
