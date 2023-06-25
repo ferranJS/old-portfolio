@@ -20,28 +20,10 @@ Deployed with Github Pages at [**`ferran.tech`**](https://ferran.tech).
 
 ## ✔️ Changes made
 
+  - Continuous Integration with [Jekyll-build](https://github.com/ferranJS/old-portfolio/blob/main/.github/workflows/jekyll-gh-pages.yml) and deploy-pages Github Actions 
   - Lazy Load (defer) `p5.min.js`, `background.js` & images for **performance**
   - **Seo** & performance improvement with *Angular Universal* prerendering
-  - Standalone components
-  - Images: resized & compressed in WebP
-  - Downloaded fonts
-  - Prerender with Github Actions
-
-## ❕ To improve 
-
-- make it responsive
-- make it prettier
-- add pre-commit hooks for Universal build & linting
-- maybe use tailwind
-
-- ### optimize:
-  - background js (should get rid of p5js dependency) (add service worker too?)
-  - image/gifs with \<picture> element
-  - meta tags order
-  - meta tags content
-  
-## ❌ Problems of the past
-- an Angular project for a portfolio... (not even typescript is needed)
-- too many files (they could have been inline components)
-- bad css
-- ugly responsiveness
+  - Images: resized & compressed in **WebP**
+  - Downloaded fonts with **woff2** format
+  - Head tags ordered following [Harry Roberts](https://github.com/csswizardry) [guide](https://speakerdeck.com/csswizardry/get-your-head-straight)
+  - Standalone (& inline) components
