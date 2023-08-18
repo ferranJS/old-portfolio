@@ -4,15 +4,15 @@
   font-family: "Montserrat Alternates";
   font-style: normal;
   font-weight: 400;
-  src: /* IE6-IE8 */ url("./assets/fonts/Montserrat_Alternates/montserrat-alternates-v17-latin-regular.woff2")
-    format("woff2");
+  src: /* IE6-IE8 */ url("/old-portfolio/rubik-v26-latin-regular.14399f370c922dc7.woff2") format("woff2");
 }
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
-  src: /* IE6-IE8 */ url("./assets/fonts/Rubik/rubik-v26-latin-regular.woff2") format("woff2");
+  src: /* IE6-IE8 */ url("/old-portfolio/montserrat-alternates-v17-latin-regular.2351a0853e1059f8.woff2")
+    format("woff2");
 }
 * {
   box-sizing: border-box;
