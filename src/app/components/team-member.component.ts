@@ -15,7 +15,7 @@ import { TeamMember } from "src/app/models/team-member.model";
         <img
           class="team-portrait"
           loading="lazy"
-          src="/assets/images/ferran.jpg"
+          src="/old-portfolio/assets/images/ferran.jpg"
           alt="Ferran Ramírez Martí, ferranJS"
         />
       </picture>

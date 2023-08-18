@@ -153,9 +153,9 @@ export class ProjectsComponent implements OnInit {
       author: "Ferran Ramírez Martí",
       urlProject: "https://cellular-stuff.netlify.app",
       urlSource: "https://gitlab.com/ferranJS/cellular-automaton-web",
-      icon: "../../../assets/icons/celula.png",
-      image: "../../../assets/images/cellular-stuff-preview.webp",
-      image2: "../../../assets/images/cellular-stuff-preview.jpg",
+      icon: "/old-portfolio/assets/icons/celula.png",
+      image: "/old-portfolio/assets/images/cellular-stuff-preview.webp",
+      image2: "/old-portfolio/assets/images/cellular-stuff-preview.jpg",
     },
   ];
 

@@ -12,7 +12,7 @@ import { Component, OnInit } from "@angular/core";
       <div>Scroll down</div>
       <img
         class="scroll-arrow"
-        src="../../assets/icons/scroll-arrow.gif"
+        src="/old-portfolio/assets/icons/scroll-arrow.gif"
         alt="scroll down"
       />
     </div>
