@@ -11,7 +11,7 @@ import { TeamMember } from "src/app/models/team-member.model";
     aria-label="Ferran Ramirez LinkedIn profile"
     >
       <picture>
-        <source srcset="/assets/images/ferran.webp" type="image/webp" />
+        <source srcset="/old-portfolio/assets/images/ferran.webp" type="image/webp" />
         <img
           class="team-portrait"
           loading="lazy"
